@@ -1,0 +1,2865 @@
+commit 223a00cd07e76a02662ce0ee06cf8392652b9432
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Mon Jun 16 22:04:53 2025 +0700
+
+    amenitiesfinal
+
+diff --git a/src/main/java/Websocket/HttpSessionConfigurator.java b/src/main/java/Websocket/HttpSessionConfigurator.java
+index 72f4ecb..76f6edf 100644
+--- a/src/main/java/Websocket/HttpSessionConfigurator.java
++++ b/src/main/java/Websocket/HttpSessionConfigurator.java
+@@ -1,25 +1,25 @@
+-/*
+- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+- */
+-package Websocket;
+-
+-import jakarta.servlet.http.HttpSession;
+-import jakarta.websocket.HandshakeResponse;
+-import jakarta.websocket.server.HandshakeRequest;
+-import jakarta.websocket.server.ServerEndpointConfig;
+-
+-/**
+- *
+- * @author Kiều Hoàng Mạnh Khang - ce180749
+- */
+-public class HttpSessionConfigurator extends ServerEndpointConfig.Configurator {
+-
+-    @Override
+-    public void modifyHandshake(ServerEndpointConfig sec, HandshakeRequest request, HandshakeResponse response) {
+-            HttpSession Session = (HttpSession) request.getHttpSession(); // lấy lại session đăng nhập
+-        sec.getUserProperties().put(HttpSession.class.getName(), Session); // truyền vào config
+-    }
+-   
+-    
+-}
++///*
++// * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
++// * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
++// */
++//package Websocket;
++//
++//import jakarta.servlet.http.HttpSession;
++//import jakarta.websocket.HandshakeResponse;
++//import jakarta.websocket.server.HandshakeRequest;
++//import jakarta.websocket.server.ServerEndpointConfig;
++//
++///**
++// *
++// * @author Kiều Hoàng Mạnh Khang - ce180749
++// */
++//public class HttpSessionConfigurator extends ServerEndpointConfig.Configurator {
++//
++//    @Override
++//    public void modifyHandshake(ServerEndpointConfig sec, HandshakeRequest request, HandshakeResponse response) {
++//            HttpSession Session = (HttpSession) request.getHttpSession(); // lấy lại session đăng nhập
++//        sec.getUserProperties().put(HttpSession.class.getName(), Session); // truyền vào config
++//    }
++//   
++//    
++//}
+diff --git a/src/main/java/Websocket/Notification.java b/src/main/java/Websocket/Notification.java
+index 3bf297b..f5a3354 100644
+--- a/src/main/java/Websocket/Notification.java
++++ b/src/main/java/Websocket/Notification.java
+@@ -1,90 +1,90 @@
+-/*
+- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+- */
+-package Websocket;
+-
+-import Websocket.WebSocket;
+-import java.io.IOException;
+-import java.io.PrintWriter;
+-import jakarta.servlet.ServletException;
+-import jakarta.servlet.annotation.WebServlet;
+-import jakarta.servlet.http.HttpServlet;
+-import jakarta.servlet.http.HttpServletRequest;
+-import jakarta.servlet.http.HttpServletResponse;
+-
+-/**
+- *
+- * @author Kiều Hoàng Mạnh Khang - ce180749
+- */
+-@WebServlet(name = "Notification", urlPatterns = {"/Notification"})
+-public class Notification extends HttpServlet {
+-
+-    /**
+-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+-     * methods.
+-     *
+-     * @param request servlet request
+-     * @param response servlet response
+-     * @throws ServletException if a servlet-specific error occurs
+-     * @throws IOException if an I/O error occurs
+-     */
+-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+-            throws ServletException, IOException {
+-        response.setContentType("text/html;charset=UTF-8");
+-        try ( PrintWriter out = response.getWriter()) {
+-            /* TODO output your page here. You may use following sample code. */
+-            out.println("<!DOCTYPE html>");
+-            out.println("<html>");
+-            out.println("<head>");
+-            out.println("<title>Servlet Notification</title>");
+-            out.println("</head>");
+-            out.println("<body>");
+-            out.println("<h1>Servlet Notification at " + request.getContextPath() + "</h1>");
+-            out.println("</body>");
+-            out.println("</html>");
+-        }
+-    }
+-
+-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+-    /**
+-     * Handles the HTTP <code>GET</code> method.
+-     *
+-     * @param request servlet request
+-     * @param response servlet response
+-     * @throws ServletException if a servlet-specific error occurs
+-     * @throws IOException if an I/O error occurs
+-     */
+-    @Override
+-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+-            throws ServletException, IOException {
+-        request.getRequestDispatcher("webSocket/notification.jsp").forward(request, response);
+-    }
+-
+-    /**
+-     * Handles the HTTP <code>POST</code> method.
+-     *
+-     * @param request servlet request
+-     * @param response servlet response
+-     * @throws ServletException if a servlet-specific error occurs
+-     * @throws IOException if an I/O error occurs
+-     */
+-    @Override
+-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+-            throws ServletException, IOException {
+-        String msg = request.getParameter("msg");
+-        String userId = request.getParameter("receiver");
+-//        WebSocket.sendToUser(userId, msg);
+-    }
+-
+-    /**
+-     * Returns a short description of the servlet.
+-     *
+-     * @return a String containing servlet description
+-     */
+-    @Override
+-    public String getServletInfo() {
+-        return "Short description";
+-    }// </editor-fold>
+-
+-}
++///*
++// * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
++// * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
++// */
++//package Websocket;
++//
++//import Websocket.WebSocket;
++//import java.io.IOException;
++//import java.io.PrintWriter;
++//import jakarta.servlet.ServletException;
++//import jakarta.servlet.annotation.WebServlet;
++//import jakarta.servlet.http.HttpServlet;
++//import jakarta.servlet.http.HttpServletRequest;
++//import jakarta.servlet.http.HttpServletResponse;
++//
++///**
++// *
++// * @author Kiều Hoàng Mạnh Khang - ce180749
++// */
++//@WebServlet(name = "Notification", urlPatterns = {"/Notification"})
++//public class Notification extends HttpServlet {
++//
++//    /**
++//     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
++//     * methods.
++//     *
++//     * @param request servlet request
++//     * @param response servlet response
++//     * @throws ServletException if a servlet-specific error occurs
++//     * @throws IOException if an I/O error occurs
++//     */
++//    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
++//            throws ServletException, IOException {
++//        response.setContentType("text/html;charset=UTF-8");
++//        try ( PrintWriter out = response.getWriter()) {
++//            /* TODO output your page here. You may use following sample code. */
++//            out.println("<!DOCTYPE html>");
++//            out.println("<html>");
++//            out.println("<head>");
++//            out.println("<title>Servlet Notification</title>");
++//            out.println("</head>");
++//            out.println("<body>");
++//            out.println("<h1>Servlet Notification at " + request.getContextPath() + "</h1>");
++//            out.println("</body>");
++//            out.println("</html>");
++//        }
++//    }
++//
++//    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
++//    /**
++//     * Handles the HTTP <code>GET</code> method.
++//     *
++//     * @param request servlet request
++//     * @param response servlet response
++//     * @throws ServletException if a servlet-specific error occurs
++//     * @throws IOException if an I/O error occurs
++//     */
++//    @Override
++//    protected void doGet(HttpServletRequest request, HttpServletResponse response)
++//            throws ServletException, IOException {
++//        request.getRequestDispatcher("webSocket/notification.jsp").forward(request, response);
++//    }
++//
++//    /**
++//     * Handles the HTTP <code>POST</code> method.
++//     *
++//     * @param request servlet request
++//     * @param response servlet response
++//     * @throws ServletException if a servlet-specific error occurs
++//     * @throws IOException if an I/O error occurs
++//     */
++//    @Override
++//    protected void doPost(HttpServletRequest request, HttpServletResponse response)
++//            throws ServletException, IOException {
++//        String msg = request.getParameter("msg");
++//        String userId = request.getParameter("receiver");
++////        WebSocket.sendToUser(userId, msg);
++//    }
++//
++//    /**
++//     * Returns a short description of the servlet.
++//     *
++//     * @return a String containing servlet description
++//     */
++//    @Override
++//    public String getServletInfo() {
++//        return "Short description";
++//    }// </editor-fold>
++//
++//}
+diff --git a/src/main/java/Websocket/WebSocket.java b/src/main/java/Websocket/WebSocket.java
+index dba6249..661675e 100644
+--- a/src/main/java/Websocket/WebSocket.java
++++ b/src/main/java/Websocket/WebSocket.java
+@@ -1,47 +1,47 @@
+-package Websocket;
+-
+-import jakarta.servlet.http.HttpSession;
+-import jakarta.websocket.CloseReason;
+-import jakarta.websocket.EndpointConfig;
+-import jakarta.websocket.OnClose;
+-import jakarta.websocket.OnMessage;
+-import jakarta.websocket.OnOpen;
+-import jakarta.websocket.server.ServerEndpoint;
+-import java.io.IOException;
+-import java.util.Collections;
+-import java.util.HashSet;
+-import java.util.Set;
+-import jakarta.websocket.Session;
+-import java.util.HashMap;
+-import java.util.Map;
+-
+-@ServerEndpoint("/notification")
+-public class WebSocket {
+-
+-    private static Set<Session> clients = Collections.synchronizedSet(new HashSet<Session>());
+-    private static Map<String, Session> userSessions = new HashMap<>();
+-
+-    @OnOpen
+-    public void onOpen(Session session, EndpointConfig sec) {
+-       clients.add(session);
+-    }
+-
+-    @OnClose
+-    public void onClose(Session session, CloseReason reason) {
+-        clients.remove(session);
+-    }
+-
+-    @OnMessage
+-    public void onMessage(String message, Session sender) {
+-        synchronized (clients) {
+-            for (Session client : clients) {
+-                try {
+-                    client.getBasicRemote().sendText(message);
+-                } catch (IOException e) {
+-                    e.printStackTrace();
+-                }
+-            }
+-        }
+-    }
+-
+-}
++//package Websocket;
++//
++//import jakarta.servlet.http.HttpSession;
++//import jakarta.websocket.CloseReason;
++//import jakarta.websocket.EndpointConfig;
++//import jakarta.websocket.OnClose;
++//import jakarta.websocket.OnMessage;
++//import jakarta.websocket.OnOpen;
++//import jakarta.websocket.server.ServerEndpoint;
++//import java.io.IOException;
++//import java.util.Collections;
++//import java.util.HashSet;
++//import java.util.Set;
++//import jakarta.websocket.Session;
++//import java.util.HashMap;
++//import java.util.Map;
++//
++//@ServerEndpoint("/notification")
++//public class WebSocket {
++//
++//    private static Set<Session> clients = Collections.synchronizedSet(new HashSet<Session>());
++//    private static Map<String, Session> userSessions = new HashMap<>();
++//
++//    @OnOpen
++//    public void onOpen(Session session, EndpointConfig sec) {
++//       clients.add(session);
++//    }
++//
++//    @OnClose
++//    public void onClose(Session session, CloseReason reason) {
++//        clients.remove(session);
++//    }
++//
++//    @OnMessage
++//    public void onMessage(String message, Session sender) {
++//        synchronized (clients) {
++//            for (Session client : clients) {
++//                try {
++//                    client.getBasicRemote().sendText(message);
++//                } catch (IOException e) {
++//                    e.printStackTrace();
++//                }
++//            }
++//        }
++//    }
++//
++//}
+diff --git a/src/main/java/controllers/amenities/AddAmenitiesDashboard.java b/src/main/java/controllers/amenities/AddAmenitiesDashboard.java
+new file mode 100644
+index 0000000..9a642da
+--- /dev/null
++++ b/src/main/java/controllers/amenities/AddAmenitiesDashboard.java
+@@ -0,0 +1,117 @@
++/*
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
++ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
++ */
++package controllers.amenities;
++
++import controllers.room.*;
++import dao.AmenitiesDao;
++import dao.RoomDao;
++import dao.RoomReviewDao;
++import java.io.IOException;
++import java.io.PrintWriter;
++import jakarta.servlet.ServletException;
++import jakarta.servlet.annotation.WebServlet;
++import jakarta.servlet.http.HttpServlet;
++import jakarta.servlet.http.HttpServletRequest;
++import jakarta.servlet.http.HttpServletResponse;
++import jakarta.servlet.http.HttpSession;
++import java.sql.SQLException;
++import java.time.LocalDateTime;
++import java.util.ArrayList;
++import java.util.List;
++import java.util.logging.Level;
++import java.util.logging.Logger;
++import javafx.util.converter.LocalDateTimeStringConverter;
++import models.Amenities;
++import models.RoomReviews;
++import models.Rooms;
++
++/**
++ *
++ * @author Kiều Hoàng Mạnh Khang - ce180749
++ */
++@WebServlet(name = "ViewRoomDetail", urlPatterns = {"/AddAmenitiesDashboard"})
++public class AddAmenitiesDashboard extends HttpServlet {
++
++    /**
++     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
++     * methods.
++     *
++     * @param request servlet request
++     * @param response servlet response
++     * @throws ServletException if a servlet-specific error occurs
++     * @throws IOException if an I/O error occurs
++     */
++    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
++            throws ServletException, IOException {
++        response.setContentType("text/html;charset=UTF-8");
++        try ( PrintWriter out = response.getWriter()) {
++            /* TODO output your page here. You may use following sample code. */
++            out.println("<!DOCTYPE html>");
++            out.println("<html>");
++            out.println("<head>");
++            out.println("<title>Servlet ViewRoomDetail</title>");
++            out.println("</head>");
++            out.println("<body>");
++            out.println("<h1>Servlet ViewRoomDetail at " + request.getContextPath() + "</h1>");
++            out.println("</body>");
++            out.println("</html>");
++        }
++    }
++
++    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
++    /**
++     * Handles the HTTP <code>GET</code> method.
++     *
++     * @param request servlet request
++     * @param response servlet response
++     * @throws ServletException if a servlet-specific error occurs
++     * @throws IOException if an I/O error occurs
++     */
++    @Override
++    protected void doGet(HttpServletRequest request, HttpServletResponse response)
++            throws ServletException, IOException {
++
++           response.sendRedirect("amenities/addAmenitiesDashboard.jsp");
++
++    }
++
++    /**
++     * Handles the HTTP <code>POST</code> method.
++     *
++     * @param request servlet request
++     * @param response servlet response
++     * @throws ServletException if a servlet-specific error occurs
++     * @throws IOException if an I/O error occurs
++     */
++    @Override
++    protected void doPost(HttpServletRequest request, HttpServletResponse response)
++            throws ServletException, IOException {
++        try {
++            String name = (String) request.getParameter("name");
++            String description = (String) request.getParameter("description");
++            AmenitiesDao dao = new AmenitiesDao();
++            boolean check = false;
++            check = dao.addAmenitiesDashboard(name, description);
++            if (check) {
++                response.sendRedirect("ViewAmenitiesDashboard");
++            } else {
++                response.sendRedirect("AddAmenitiesDashboard");
++            }
++        } catch (SQLException ex) {
++            Logger.getLogger(AddAmenitiesDashboard.class.getName()).log(Level.SEVERE, null, ex);
++        }
++    }
++
++    /**
++     * Returns a short description of the servlet.
++     *
++     * @return a String containing servlet description
++     */
++    @Override
++    public String getServletInfo() {
++        return "Short description";
++    }// </editor-fold>
++
++}
+diff --git a/src/main/java/controllers/amenities/DeleteAmenitiesDashboard.java b/src/main/java/controllers/amenities/DeleteAmenitiesDashboard.java
+new file mode 100644
+index 0000000..1e226d2
+--- /dev/null
++++ b/src/main/java/controllers/amenities/DeleteAmenitiesDashboard.java
+@@ -0,0 +1,107 @@
++/*
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
++ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
++ */
++package controllers.amenities;
++
++import controllers.voucher.*;
++import dao.AmenitiesDao;
++import dao.CustomerDao;
++import dao.CustomerVoucherDao;
++import dao.VoucherDAO;
++import java.io.IOException;
++import java.io.PrintWriter;
++import jakarta.servlet.ServletException;
++import jakarta.servlet.annotation.WebServlet;
++import jakarta.servlet.http.HttpServlet;
++import jakarta.servlet.http.HttpServletRequest;
++import jakarta.servlet.http.HttpServletResponse;
++import jakarta.servlet.http.HttpSession;
++import java.sql.SQLException;
++import java.util.List;
++import java.util.logging.Level;
++import java.util.logging.Logger;
++import models.Amenities;
++
++/**
++ *
++ * @author CE180441_Dương Đinh Thế Vinh
++ */
++@WebServlet(name = "DeleteAmenitiesDashboard", urlPatterns = {"/DeleteAmenitiesDashboard"})
++public class DeleteAmenitiesDashboard extends HttpServlet {
++
++    /**
++     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
++     * methods.
++     *
++     * @param request servlet request
++     * @param response servlet response
++     * @throws ServletException if a servlet-specific error occurs
++     * @throws IOException if an I/O error occurs
++     */
++    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
++            throws ServletException, IOException {
++        response.setContentType("text/html;charset=UTF-8");
++        try ( PrintWriter out = response.getWriter()) {
++            /* TODO output your page here. You may use following sample code. */
++            out.println("<!DOCTYPE html>");
++            out.println("<html>");
++            out.println("<head>");
++            out.println("<title>Servlet Vouchers</title>");
++            out.println("</head>");
++            out.println("<body>");
++            out.println("<h1>Servlet Vouchers at " + request.getContextPath() + "</h1>");
++            out.println("</body>");
++            out.println("</html>");
++        }
++    }
++
++    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
++    /**
++     * Handles the HTTP <code>GET</code> method.
++     *
++     * @param request servlet request
++     * @param response servlet response
++     * @throws ServletException if a servlet-specific error occurs
++     * @throws IOException if an I/O error occurs
++     */
++    @Override
++    protected void doGet(HttpServletRequest request, HttpServletResponse response)
++    throws ServletException, IOException {
++        try {
++            int id = Integer.parseInt(request.getParameter("id"));
++            AmenitiesDao dao = new AmenitiesDao();
++            dao.deleteAmenities(id);
++            if (dao.deleteAmenities(id)); {
++                response.sendRedirect("ViewAmenitiesDashboard");
++            }
++        } catch (SQLException ex) {
++            Logger.getLogger(DeleteAmenitiesDashboard.class.getName()).log(Level.SEVERE, null, ex);
++        }
++    }
++
++    /**
++     * Handles the HTTP <code>POST</code> method.
++     *
++     * @param request servlet request
++     * @param response servlet response
++     * @throws ServletException if a servlet-specific error occurs
++     * @throws IOException if an I/O error occurs
++     */
++    @Override
++    protected void doPost(HttpServletRequest request, HttpServletResponse response)
++            throws ServletException, IOException {
++        processRequest(request, response);
++    }
++
++    /**
++     * Returns a short description of the servlet.
++     *
++     * @return a String containing servlet description
++     */
++    @Override
++    public String getServletInfo() {
++        return "Short description";
++    }// </editor-fold>
++
++}
+diff --git a/src/main/java/controllers/amenities/EditAmenitiesDashboard.java b/src/main/java/controllers/amenities/EditAmenitiesDashboard.java
+new file mode 100644
+index 0000000..3cbc3e7
+--- /dev/null
++++ b/src/main/java/controllers/amenities/EditAmenitiesDashboard.java
+@@ -0,0 +1,126 @@
++/*
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
++ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
++ */
++package controllers.amenities;
++
++import controllers.room.*;
++import dao.AmenitiesDao;
++import dao.RoomDao;
++import dao.RoomReviewDao;
++import java.io.IOException;
++import java.io.PrintWriter;
++import jakarta.servlet.ServletException;
++import jakarta.servlet.annotation.WebServlet;
++import jakarta.servlet.http.HttpServlet;
++import jakarta.servlet.http.HttpServletRequest;
++import jakarta.servlet.http.HttpServletResponse;
++import jakarta.servlet.http.HttpSession;
++import java.sql.SQLException;
++import java.time.LocalDateTime;
++import java.util.ArrayList;
++import java.util.List;
++import java.util.logging.Level;
++import java.util.logging.Logger;
++import javafx.util.converter.LocalDateTimeStringConverter;
++import models.Amenities;
++import models.RoomReviews;
++import models.Rooms;
++
++/**
++ *
++ * @author Kiều Hoàng Mạnh Khang - ce180749
++ */
++@WebServlet(name = "EditAmenitiesDashboard", urlPatterns = {"/EditAmenitiesDashboard"})
++public class EditAmenitiesDashboard extends HttpServlet {
++
++    /**
++     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
++     * methods.
++     *
++     * @param request servlet request
++     * @param response servlet response
++     * @throws ServletException if a servlet-specific error occurs
++     * @throws IOException if an I/O error occurs
++     */
++    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
++            throws ServletException, IOException {
++        response.setContentType("text/html;charset=UTF-8");
++        try ( PrintWriter out = response.getWriter()) {
++            /* TODO output your page here. You may use following sample code. */
++            out.println("<!DOCTYPE html>");
++            out.println("<html>");
++            out.println("<head>");
++            out.println("<title>Servlet ViewRoomDetail</title>");
++            out.println("</head>");
++            out.println("<body>");
++            out.println("<h1>Servlet ViewRoomDetail at " + request.getContextPath() + "</h1>");
++            out.println("</body>");
++            out.println("</html>");
++        }
++    }
++
++    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
++    /**
++     * Handles the HTTP <code>GET</code> method.
++     *
++     * @param request servlet request
++     * @param response servlet response
++     * @throws ServletException if a servlet-specific error occurs
++     * @throws IOException if an I/O error occurs
++     */
++    @Override
++    protected void doGet(HttpServletRequest request, HttpServletResponse response)
++            throws ServletException, IOException {
++        try {
++            AmenitiesDao dao = new AmenitiesDao();
++            int id = Integer.parseInt(request.getParameter("id"));
++            request.setAttribute("a", dao.getAmenitiesById(id));
++            request.getRequestDispatcher("amenities/editAmenitiesDashboard.jsp").forward(request, response);
++        } catch (SQLException ex) {
++            Logger.getLogger(EditAmenitiesDashboard.class.getName()).log(Level.SEVERE, null, ex);
++        }
++
++    }
++
++    /**
++     * Handles the HTTP <code>POST</code> method.
++     *
++     * @param request servlet request
++     * @param response servlet response
++     * @throws ServletException if a servlet-specific error occurs
++     * @throws IOException if an I/O error occurs
++     */
++    @Override
++    protected void doPost(HttpServletRequest request, HttpServletResponse response)
++            throws ServletException, IOException {
++
++        int id = Integer.parseInt(request.getParameter("id"));
++        String name = (String) request.getParameter("name");
++        String description = (String) request.getParameter("description");
++        Amenities amenities = new Amenities();
++        amenities.setAmenityId(id);
++        amenities.setName(name);
++        amenities.setDescription(description);
++        AmenitiesDao dao = new AmenitiesDao();
++        dao.updateAmenities(amenities);
++        int check = 0;
++        check = dao.updateAmenities(amenities);
++        if (check != 0) {
++            response.sendRedirect("ViewAmenitiesDashboard");
++        } else {
++            response.sendRedirect("hybuttb+" + check);
++        }
++    }
++
++    /**
++     * Returns a short description of the servlet.
++     *
++     * @return a String containing servlet description
++     */
++    @Override
++    public String getServletInfo() {
++        return "Short description";
++    }// </editor-fold>
++
++}
+diff --git a/src/main/java/controllers/amenities/ViewAmenitiesDashboard.java b/src/main/java/controllers/amenities/ViewAmenitiesDashboard.java
+new file mode 100644
+index 0000000..a4e213f
+--- /dev/null
++++ b/src/main/java/controllers/amenities/ViewAmenitiesDashboard.java
+@@ -0,0 +1,106 @@
++/*
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
++ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
++ */
++package controllers.amenities;
++
++import controllers.voucher.*;
++import dao.AmenitiesDao;
++import dao.CustomerDao;
++import dao.CustomerVoucherDao;
++import dao.VoucherDAO;
++import java.io.IOException;
++import java.io.PrintWriter;
++import jakarta.servlet.ServletException;
++import jakarta.servlet.annotation.WebServlet;
++import jakarta.servlet.http.HttpServlet;
++import jakarta.servlet.http.HttpServletRequest;
++import jakarta.servlet.http.HttpServletResponse;
++import jakarta.servlet.http.HttpSession;
++import java.sql.SQLException;
++import java.util.List;
++import java.util.logging.Level;
++import java.util.logging.Logger;
++import models.Amenities;
++
++/**
++ *
++ * @author CE180441_Dương Đinh Thế Vinh
++ */
++@WebServlet(name = "ViewAmenitiesDashboard", urlPatterns = {"/ViewAmenitiesDashboard"})
++public class ViewAmenitiesDashboard extends HttpServlet {
++
++    /**
++     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
++     * methods.
++     *
++     * @param request servlet request
++     * @param response servlet response
++     * @throws ServletException if a servlet-specific error occurs
++     * @throws IOException if an I/O error occurs
++     */
++    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
++            throws ServletException, IOException {
++        response.setContentType("text/html;charset=UTF-8");
++        try ( PrintWriter out = response.getWriter()) {
++            /* TODO output your page here. You may use following sample code. */
++            out.println("<!DOCTYPE html>");
++            out.println("<html>");
++            out.println("<head>");
++            out.println("<title>Servlet Vouchers</title>");
++            out.println("</head>");
++            out.println("<body>");
++            out.println("<h1>Servlet Vouchers at " + request.getContextPath() + "</h1>");
++            out.println("</body>");
++            out.println("</html>");
++        }
++    }
++
++    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
++    /**
++     * Handles the HTTP <code>GET</code> method.
++     *
++     * @param request servlet request
++     * @param response servlet response
++     * @throws ServletException if a servlet-specific error occurs
++     * @throws IOException if an I/O error occurs
++     */
++    @Override
++    protected void doGet(HttpServletRequest request, HttpServletResponse response)
++            throws ServletException, IOException {
++
++        try {
++            AmenitiesDao dao = new AmenitiesDao();
++            List<Amenities> list = dao.getAllAmenities();
++            request.setAttribute("amenitiesList", list);
++            request.getRequestDispatcher("amenities/viewAmenities.jsp").forward(request, response);
++        } catch (SQLException ex) {
++            Logger.getLogger(ViewAmenitiesDashboard.class.getName()).log(Level.SEVERE, null, ex);
++        }
++    }
++
++    /**
++     * Handles the HTTP <code>POST</code> method.
++     *
++     * @param request servlet request
++     * @param response servlet response
++     * @throws ServletException if a servlet-specific error occurs
++     * @throws IOException if an I/O error occurs
++     */
++    @Override
++    protected void doPost(HttpServletRequest request, HttpServletResponse response)
++            throws ServletException, IOException {
++
++    }
++
++    /**
++     * Returns a short description of the servlet.
++     *
++     * @return a String containing servlet description
++     */
++    @Override
++    public String getServletInfo() {
++        return "Short description";
++    }// </editor-fold>
++
++}
+diff --git a/src/main/java/dao/AmenitiesDao.java b/src/main/java/dao/AmenitiesDao.java
+new file mode 100644
+index 0000000..6e5c7ad
+--- /dev/null
++++ b/src/main/java/dao/AmenitiesDao.java
+@@ -0,0 +1,122 @@
++/*
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
++ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
++ */
++package dao;
++
++import db.ConnectData;
++import java.sql.Connection;
++import java.sql.PreparedStatement;
++import java.sql.ResultSet;
++import java.sql.SQLException;
++import java.sql.Statement;
++import java.util.ArrayList;
++import java.util.List;
++import models.Amenities;
++
++/**
++ *
++ * @author KHANH
++ */
++public class AmenitiesDao {
++
++    private Connection conn;
++
++    public AmenitiesDao() {
++        conn = ConnectData.getConnection();
++    }
++
++    // Thêm tiện ích từ giao diện Dashboard (dữ liệu truyền trực tiếp)
++    public boolean addAmenitiesDashboard(String name, String description) throws SQLException {
++        String sql = "INSERT INTO Amenities (Name, Description) VALUES (?, ?)";
++        try ( PreparedStatement stmt = conn.prepareStatement(sql)) {
++            stmt.setString(1, name);
++            stmt.setString(2, description);
++            return stmt.executeUpdate() > 0;
++        }
++    }
++
++    // Cập nhật tiện ích
++    public int updateAmenities(Amenities amenities) {
++        String sql = "UPDATE Amenities SET Name = ?, Description = ? WHERE AmenityId = ?";
++        int check = 0;
++
++        try ( PreparedStatement stmt = conn.prepareStatement(sql)) {
++            stmt.setString(1, amenities.getName());
++            stmt.setString(2, amenities.getDescription());
++            stmt.setInt(3, amenities.getAmenityId());
++            check = stmt.executeUpdate();
++        } catch (SQLException ex) {
++            ex.printStackTrace(); // Có thể ghi log tại đây thay vì in ra console
++        }
++
++        return check;
++    }
++
++    // Xóa tiện ích
++    public boolean deleteAmenities(int amenityId) throws SQLException {
++        String sql = "DELETE FROM Amenities WHERE AmenityId = ?";
++        try ( PreparedStatement stmt = conn.prepareStatement(sql)) {
++            stmt.setInt(1, amenityId);
++            return stmt.executeUpdate() > 0;
++        }
++    }
++
++    // Lấy tất cả tiện ích
++    public List<Amenities> getAllAmenities() throws SQLException {
++        List<Amenities> list = new ArrayList<>();
++        String sql = "SELECT AmenityId, Name, Description FROM Amenities";
++        try ( Statement stmt = conn.createStatement();  ResultSet rs = stmt.executeQuery(sql)) {
++            while (rs.next()) {
++                Amenities a = new Amenities();
++                a.setAmenityId(rs.getInt("AmenityId"));
++                a.setName(rs.getString("Name"));
++                a.setDescription(rs.getString("Description"));
++                list.add(a);
++            }
++        }
++        return list;
++    }
++
++    // Lấy tiện ích theo ID
++    public Amenities getAmenitiesById(int amenityId) throws SQLException {
++        String sql = "SELECT * FROM Amenities WHERE AmenityId = ?";
++        try ( PreparedStatement stmt = conn.prepareStatement(sql)) {
++            stmt.setInt(1, amenityId);
++            try ( ResultSet rs = stmt.executeQuery()) {
++                if (rs.next()) {
++                    Amenities a = new Amenities();
++                    a.setAmenityId(rs.getInt("AmenityId"));
++                    a.setName(rs.getString("Name"));
++                    a.setDescription(rs.getString("Description"));
++                    return a;
++                }
++            }
++        }
++        return null;
++    }
++
++    // Lấy tiện ích liên quan đến một Maintenance cụ thể
++    public List<Amenities> getAmenities(int maintenanceId) {
++        List<Amenities> list = new ArrayList<>();
++        String sql = "SELECT a.AmenityId, a.Name, a.Description "
++                + "FROM MaintenanceScheduleAmenities msa "
++                + "JOIN Amenities a ON msa.AmenityId = a.AmenityId "
++                + "WHERE msa.MaintenanceId = ?";
++        try ( PreparedStatement stmt = conn.prepareStatement(sql)) {
++            stmt.setInt(1, maintenanceId);
++            try ( ResultSet rs = stmt.executeQuery()) {
++                while (rs.next()) {
++                    Amenities a = new Amenities();
++                    a.setAmenityId(rs.getInt("AmenityId"));
++                    a.setName(rs.getString("Name"));
++                    a.setDescription(rs.getString("Description"));
++                    list.add(a);
++                }
++            }
++        } catch (SQLException e) {
++            e.printStackTrace();
++        }
++        return list;
++    }
++}
+diff --git a/src/main/java/db/ConnectData.java b/src/main/java/db/ConnectData.java
+index a9a2f36..2cc1970 100644
+--- a/src/main/java/db/ConnectData.java
++++ b/src/main/java/db/ConnectData.java
+@@ -1,4 +1,5 @@
+ /*
++package db;
+  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+  */
+@@ -20,7 +21,7 @@ public class ConnectData {
+         try {
+             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+ 
+-            String url = "jdbc:sqlserver://MKHANGDZ1ST:1433;databaseName=building_management27;user=sa;password=mkhang123abc;encryt=true;trustServerCertificate=true;    ";
++            String url = "jdbc:sqlserver://LAPTOP-SJ6AII7D\\SQLEXPRESS:1433;databaseName=building_management27;user=sa;password=123456;encryt=true;trustServerCertificate=true;    ";
+ 
+             conn = DriverManager.getConnection(url);
+         } catch (ClassNotFoundException ex) {
+diff --git a/src/main/java/models/Amenities.java b/src/main/java/models/Amenities.java
+index 0bf7bf2..064eeff 100644
+--- a/src/main/java/models/Amenities.java
++++ b/src/main/java/models/Amenities.java
+@@ -6,42 +6,38 @@ package models;
+ 
+ /**
+  *
+- * @author Kiều Hoàng Mạnh Khang - ce180749
++ * @author KHANH
+  */
+ public class Amenities {
+-    private int amenityId;
+-    private String name;
+-    private String description;
++     private int AmenityId;
++     private String Name;
++     private String Description;
+ 
+     public Amenities() {
+     }
+-  
+ 
+     public int getAmenityId() {
+-        return amenityId;
++        return AmenityId;
+     }
+ 
+-    public void setAmenityId(int amenityId) {
+-        this.amenityId = amenityId;
++    public void setAmenityId(int AmenityId) {
++        this.AmenityId = AmenityId;
+     }
+ 
+     public String getName() {
+-        return name;
++        return Name;
+     }
+ 
+-    public void setName(String name) {
+-        this.name = name;
++    public void setName(String Name) {
++        this.Name = Name;
+     }
+ 
+     public String getDescription() {
+-        return description;
++        return Description;
+     }
+ 
+-    public void setDescription(String description) {
+-        this.description = description;
++    public void setDescription(String Description) {
++        this.Description = Description;
+     }
+-
+-
+-    
+-    
++     
+ }
+diff --git a/src/main/webapp/amenities/addAmenitiesDashboard.jsp b/src/main/webapp/amenities/addAmenitiesDashboard.jsp
+new file mode 100644
+index 0000000..02001ea
+--- /dev/null
++++ b/src/main/webapp/amenities/addAmenitiesDashboard.jsp
+@@ -0,0 +1,194 @@
++<%-- 
++    Document   : addAmenitiesDashboard
++    Created on : Jun 15, 2025, 10:06:09 PM
++    Author     : KHANH
++--%>
++
++<%@page contentType="text/html" pageEncoding="UTF-8"%>
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title>${a != null ? 'Edit Amenity' : 'Add New Amenity'}</title>
++    <style>
++        :root {
++            --main-color: #0a2f5c;
++            --hover-color: #0c3f7c;
++            --bg-color: #f0f6ff;
++            --text-color: #333;
++            --radius: 10px;
++            --shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
++        }
++
++        * {
++            box-sizing: border-box;
++        }
++
++        body {
++            margin: 0;
++            padding: 0;
++            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
++            background-color: #ffffff;
++            display: flex;
++            align-items: center;
++            justify-content: center;
++            min-height: 100vh;
++            animation: fadeInBody 1s ease forwards;
++        }
++
++        @keyframes fadeInBody {
++            from { opacity: 0; }
++            to { opacity: 1; }
++        }
++
++        .form-wrapper {
++            background-color: var(--bg-color);
++            padding: 40px 30px;
++            max-width: 540px;
++            width: 90%;
++            border-radius: var(--radius);
++            box-shadow: var(--shadow);
++            animation: slideIn 0.7s ease-out;
++            opacity: 0;
++            transform: translateY(30px);
++            animation-fill-mode: forwards;
++        }
++
++        @keyframes slideIn {
++            to {
++                opacity: 1;
++                transform: translateY(0);
++            }
++        }
++
++        .form-wrapper:hover {
++            transform: scale(1.01);
++            transition: transform 0.3s ease;
++        }
++
++        h2 {
++            text-align: center;
++            color: var(--main-color);
++            margin-bottom: 10px;
++            font-size: 26px;
++        }
++
++        .description-text {
++            text-align: center;
++            font-size: 14px;
++            color: #555;
++            margin-bottom: 30px;
++        }
++
++        label {
++            display: block;
++            margin-bottom: 6px;
++            font-weight: 600;
++            color: var(--main-color);
++        }
++
++        label::before {
++            content: attr(data-icon) " ";
++            margin-right: 5px;
++        }
++
++        input[type="text"],
++        textarea {
++            width: 100%;
++            padding: 12px;
++            margin-bottom: 20px;
++            border: 1px solid #ccc;
++            border-radius: var(--radius);
++            font-size: 15px;
++            background-color: #fff;
++            transition: border 0.2s, box-shadow 0.2s;
++        }
++
++        input[type="text"]:focus,
++        textarea:focus {
++            border-color: var(--main-color);
++            box-shadow: 0 0 5px rgba(10, 47, 92, 0.4);
++            outline: none;
++        }
++
++        textarea {
++            resize: vertical;
++            min-height: 100px;
++        }
++
++        .button-group {
++            display: flex;
++            justify-content: center;
++            gap: 15px;
++            margin-top: 10px;
++        }
++
++        input[type="submit"],
++        input[type="reset"] {
++            background-color: var(--main-color);
++            color: #fff;
++            border: none;
++            padding: 12px 24px;
++            border-radius: var(--radius);
++            font-size: 15px;
++            font-weight: 600;
++            cursor: pointer;
++            transition: background-color 0.3s ease, transform 0.2s ease;
++        }
++
++        input[type="submit"]:hover,
++        input[type="reset"]:hover {
++            background-color: var(--hover-color);
++            transform: scale(1.05);
++        }
++
++        .back-link {
++            text-align: center;
++            margin-top: 25px;
++        }
++
++        .back-link a {
++            text-decoration: none;
++            color: var(--main-color);
++            font-weight: bold;
++            font-size: 14px;
++            transition: color 0.2s ease;
++        }
++
++        .back-link a:hover {
++            color: var(--hover-color);
++        }
++    </style>
++</head>
++<body>
++
++<div class="form-wrapper">
++    <h2>${a != null ? '🛠️ Edit Amenity' : '➕ Add New Amenity'}</h2>
++    <p class="description-text">
++        Please fill in the details below to ${a != null ? 'update the amenity' : 'add a new amenity'} to the system.
++    </p>
++
++    <form action="${pageContext.request.contextPath}/${a != null ? 'EditAmenitiesDashboard' : 'AddAmenitiesDashboard'}" method="post">
++        <c:if test="${a != null}">
++            <input type="hidden" name="id" value="${a.amenityId}" />
++        </c:if>
++
++        <label for="name" data-icon="🏷️">Amenity Name:</label>
++        <input type="text" id="name" name="name" maxlength="100" required value="${a != null ? a.name : ''}">
++
++        <label for="description" data-icon="📝">Description:</label>
++        <textarea id="description" name="description" maxlength="255">${a != null ? a.description : ''}</textarea>
++
++        <div class="button-group">
++            <input type="submit" value="${a != null ? 'Update' : 'Add'}">
++            <input type="reset" value="Reset">
++        </div>
++    </form>
++
++    <div class="back-link">
++        <a href="${pageContext.request.contextPath}/ViewAmenitiesDashboard">← Back to List</a>
++    </div>
++</div>
++
++</body>
++</html>
+\ No newline at end of file
+diff --git a/src/main/webapp/amenities/editAmenitiesDashboard.jsp b/src/main/webapp/amenities/editAmenitiesDashboard.jsp
+new file mode 100644
+index 0000000..7337fb1
+--- /dev/null
++++ b/src/main/webapp/amenities/editAmenitiesDashboard.jsp
+@@ -0,0 +1,185 @@
++<%-- 
++    Document   : editAmenitiesDashboard
++    Created on : Jun 16, 2025, 12:37:26 AM
++    Author     : KHANH
++--%>
++<%@ page contentType="text/html;charset=UTF-8" language="java" %>
++<%@ page import="models.Amenities" %>
++
++
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title>Edit Amenity</title>
++    <style>
++        :root {
++            --primary-color: #0a2f5c;
++            --primary-hover: #0c3f7c;
++            --background: #ffffff;
++            --form-bg: #f4faff;
++            --input-border: #ccc;
++            --radius: 12px;
++            --shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
++        }
++
++        * {
++            box-sizing: border-box;
++        }
++
++        body {
++            margin: 0;
++            padding: 0;
++            background: linear-gradient(135deg, #e4f0ff, #ffffff);
++            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
++            display: flex;
++            align-items: center;
++            justify-content: center;
++            min-height: 100vh;
++            position: relative;
++        }
++
++        /* Decorative icon background */
++        body::before {
++            content: "";
++            position: absolute;
++            top: 10%;
++            left: 5%;
++            width: 140px;
++            height: 140px;
++            background: url('https://cdn-icons-png.flaticon.com/512/847/847969.png') no-repeat center/contain;
++            opacity: 0.05;
++            pointer-events: none;
++        }
++
++        .form-container {
++            background-color: var(--form-bg);
++            border-radius: var(--radius);
++            box-shadow: var(--shadow);
++            padding: 40px;
++            max-width: 480px;
++            width: 90%;
++            animation: fadeIn 0.5s ease-in-out;
++        }
++
++        h1 {
++            color: var(--primary-color);
++            text-align: center;
++            margin-bottom: 10px;
++            font-size: 26px;
++        }
++
++        .description {
++            text-align: center;
++            font-size: 14px;
++            color: #555;
++            margin-bottom: 25px;
++        }
++
++        label {
++            display: block;
++            margin-top: 16px;
++            margin-bottom: 6px;
++            font-weight: 600;
++            color: var(--primary-color);
++        }
++
++        label::before {
++            content: attr(data-icon) " ";
++            margin-right: 4px;
++        }
++
++        input[type="text"],
++        textarea {
++            width: 100%;
++            padding: 12px;
++            border: 1px solid var(--input-border);
++            border-radius: 8px;
++            font-size: 15px;
++            transition: border-color 0.3s;
++            background-color: #fff;
++        }
++
++        input[type="text"]:focus,
++        textarea:focus {
++            border-color: var(--primary-color);
++            outline: none;
++        }
++
++        textarea {
++            resize: vertical;
++            min-height: 100px;
++        }
++
++        button {
++            background-color: var(--primary-color);
++            color: white;
++            border: none;
++            padding: 14px;
++            border-radius: 8px;
++            font-size: 16px;
++            font-weight: bold;
++            cursor: pointer;
++            width: 100%;
++            margin-top: 30px;
++            transition: background-color 0.3s;
++        }
++
++        button:hover {
++            background-color: var(--primary-hover);
++        }
++
++        .back-link {
++            text-align: center;
++            margin-top: 20px;
++        }
++
++        .back-link a {
++            color: var(--primary-color);
++            text-decoration: none;
++            font-weight: bold;
++            font-size: 14px;
++            transition: color 0.2s;
++        }
++
++        .back-link a:hover {
++            color: var(--primary-hover);
++        }
++
++        @keyframes fadeIn {
++            from { opacity: 0; transform: translateY(15px); }
++            to { opacity: 1; transform: translateY(0); }
++        }
++
++        @media (max-width: 480px) {
++            .form-container {
++                padding: 30px 20px;
++            }
++        }
++    </style>
++</head>
++<body>
++
++    <div class="form-container">
++        <h1>🛠️ Edit Amenity</h1>
++        <p class="description">Please fill in the details below to update this amenity in the system.</p>
++
++        <form action="${pageContext.request.contextPath}/EditAmenitiesDashboard" method="post">
++            <input type="hidden" name="id" value="${a.amenityId}" />
++
++            <label for="name" data-icon="🏷️">Amenity Name:</label>
++            <input type="text" id="name" name="name" maxlength="100" required value="${a.name}" />
++
++            <label for="description" data-icon="📝">Description:</label>
++            <textarea id="description" name="description" maxlength="255" rows="4">${a.description}</textarea>
++
++            <button type="submit">Update Amenity</button>
++        </form>
++
++        <div class="back-link">
++            <a href="${pageContext.request.contextPath}/ViewAmenitiesDashboard">← Back to Amenities List</a>
++        </div>
++    </div>
++
++</body>
++</html>
+\ No newline at end of file
+diff --git a/src/main/webapp/amenities/viewAmenities.jsp b/src/main/webapp/amenities/viewAmenities.jsp
+new file mode 100644
+index 0000000..8017645
+--- /dev/null
++++ b/src/main/webapp/amenities/viewAmenities.jsp
+@@ -0,0 +1,172 @@
++<%-- 
++    Document   : viewAmenities
++    Created on : Jun 15, 2025, 8:19:33 PM
++    Author     : KHANH
++--%>
++
++<%@ page contentType="text/html;charset=UTF-8" language="java" %>
++<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title>Amenities List</title>
++    <style>
++        :root {
++            --primary-color: #0a2f5c;
++            --primary-hover: #0c3f7c;
++            --edit-color: #007bff;
++            --edit-hover: #0056b3;
++            --delete-color: #dc3545;
++            --delete-hover: #a71d2a;
++            --background: #f8fbff;
++            --table-bg: #ffffff;
++            --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
++        }
++
++        * {
++            box-sizing: border-box;
++        }
++
++        body {
++            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
++            background-color: var(--background);
++            margin: 0;
++            padding: 40px 20px;
++        }
++
++        h2 {
++            color: var(--primary-color);
++            text-align: center;
++            margin-bottom: 30px;
++            font-size: 28px;
++        }
++
++        .top-bar {
++            display: flex;
++            justify-content: flex-end;
++            margin-bottom: 20px;
++        }
++
++        .btn {
++            background-color: var(--primary-color);
++            color: #fff;
++            padding: 10px 20px;
++            text-decoration: none;
++            border-radius: 6px;
++            font-weight: bold;
++            transition: background-color 0.3s ease;
++            box-shadow: var(--shadow);
++        }
++
++        .btn:hover {
++            background-color: var(--primary-hover);
++        }
++
++        table {
++            width: 100%;
++            border-collapse: collapse;
++            background-color: var(--table-bg);
++            border-radius: 10px;
++            overflow: hidden;
++            box-shadow: var(--shadow);
++        }
++
++        th, td {
++            padding: 14px 18px;
++            text-align: center;
++            border-bottom: 1px solid #e1e9f0;
++        }
++
++        th {
++            background-color: var(--primary-color);
++            color: white;
++            text-transform: uppercase;
++            font-size: 14px;
++            letter-spacing: 0.5px;
++        }
++
++        tr:nth-child(even) {
++            background-color: #f4f7fa;
++        }
++
++        tr:hover {
++            background-color: #e3eefc;
++        }
++
++        .action-links a {
++            margin: 0 6px;
++            padding: 7px 12px;
++            border-radius: 5px;
++            text-decoration: none;
++            color: white;
++            font-size: 13px;
++            font-weight: 600;
++            display: inline-block;
++        }
++
++        .edit-btn {
++            background-color: var(--edit-color);
++        }
++
++        .edit-btn:hover {
++            background-color: var(--edit-hover);
++        }
++
++        .delete-btn {
++            background-color: var(--delete-color);
++        }
++
++        .delete-btn:hover {
++            background-color: var(--delete-hover);
++        }
++
++        @media (max-width: 768px) {
++            th, td {
++                padding: 10px;
++                font-size: 14px;
++            }
++
++            .btn {
++                padding: 8px 16px;
++            }
++
++            .action-links a {
++                margin: 2px 3px;
++            }
++        }
++    </style>
++</head>
++<body>
++
++    <h2>Amenities List</h2>
++
++    <div class="top-bar">
++        <a class="btn" href="AddAmenitiesDashboard">+ Add Amenity</a>
++    </div>
++
++    <table>
++        <thead>
++            <tr>
++                <th>ID</th>
++                <th>Amenity Name</th>
++                <th>Description</th>
++                <th>Actions</th>
++            </tr>
++        </thead>
++        <tbody>
++            <c:forEach var="a" items="${amenitiesList}">
++                <tr>
++                    <td>${a.amenityId}</td>
++                    <td>${a.name}</td>
++                    <td>${a.description}</td>
++                    <td class="action-links">
++                        <a class="edit-btn" href="EditAmenitiesDashboard?id=${a.amenityId}">Edit</a>
++                        <a class="delete-btn" href="DeleteAmenitiesDashboard?id=${a.amenityId}" onclick="return confirm('Are you sure you want to delete this amenity?');">Delete</a>
++                    </td>
++                </tr>
++            </c:forEach>
++        </tbody>
++    </table>
++
++</body>
++</html>
+\ No newline at end of file
+diff --git a/src/main/webapp/header/header.jsp b/src/main/webapp/header/header.jsp
+index b626005..65e4a6c 100644
+--- a/src/main/webapp/header/header.jsp
++++ b/src/main/webapp/header/header.jsp
+@@ -111,6 +111,8 @@
+         <a href="UpImage">Up ảnh</a>
+         <a href="Notification">Notification</a>
+         <a href="TakeNotification">Nhận Notification</a>
++        <a href="ViewAmenitiesDashboard">Xem danh sách tiện ích</a>
++        
+         <c:choose>
+             <c:when test="${empty accountType}">
+                 <a href="Login">Đăng nhập</a>
+@@ -133,12 +135,18 @@
+                     <c:when test="${role == 5}">
+                         <a href="?id=${equipmentId}">${userName}</a>
+                     </c:when>
+-                </c:choose>
++                    <c:when test="${role == 6}">
++                        <a href="?id=${cusstomerId}">${userName}</a>
++                        </c:when>
++                </c:choose> 
++                        
+             </c:when>
+             <c:otherwise>
+-                <a href="?id=${cusstomerId}">${userName}</a>
++                
+             </c:otherwise>
+         </c:choose>
++                
++                
+     </nav>
+     <button id="menu-toggle">☰</button>
+ </header>
+diff --git a/src/main/webapp/index.jsp b/src/main/webapp/index.jsp
+index 1bfc16b..0ad9f16 100644
+--- a/src/main/webapp/index.jsp
++++ b/src/main/webapp/index.jsp
+@@ -21,49 +21,14 @@
+ 
+         </script>
+ 
+-
++    <a href="index.jsp"></a>
+ 
+     </head>
+     <body>
+ 
+-<<<<<<< HEAD
+-        <header>
+-            <div class="logo">🏨 HotelManager</div>
+-            <nav id="nav-menu">
+-                <a href="Equipment">Equipment</a>
+-                <a href="Index">Trang chủ</a>
+-                <a href="ListRooms">Phòng</a>
+ 
+-                <a href="#">Đặt phòng</a>
+-                <a href="#">Liên hệ</a>
+-                <a href="UpImage">Up ảnh</a>
+-                <a href="VouchersDashBoard">VouchersDashBoard</a>
+-                <a href="ViewVouchers" > ViewVouchers </a> <br>
+-                <c:choose  > 
+-                    <c:when test="${ empty accountType   }">  
+-                        <a href="Login">Đăng nhập</a> 
+-                    </c:when>
+-                    <c:when test="${ accountType eq 'option1'   }">  
+-                        <c:choose> 
+-                            <c:when test="${role == 1}">
+-                                <a href="Admin">Admin</a> 
+-                                <a href="?id=${adminId}">${userName}</a> 
+-                            </c:when>
+-                            <c:when test="${role == 2}">
+-                                <a href="?id=${managerId}">${userName}</a> 
+-                            </c:when>
+-                            <c:when  test="${role == 3}">
+-                                <a href="?id=${staffId}">${userName}</a> 
+-                            </c:when>
+-                            <c:when test="${role == 4}">
+-                                <a href="?id=${onsumablesId}">${userName}</a> 
+-                            </c:when>
+-                            <c:when test="${role == 5}">
+-                                <a href="?id=${equipmentId}">${userName}</a> 
+-                            </c:when>
+-=======
+         <%@include file="header/header.jsp" %> 
+->>>>>>> cfebfc22ee12a619d334010639fb4861f884ea02
++
+ 
+ 
+         <!-- banner -->
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT.war b/target/BuildingWeb-1.0-SNAPSHOT.war
+index d968294..00b90e4 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT.war and b/target/BuildingWeb-1.0-SNAPSHOT.war differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/.netbeans_automatic_build b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/.netbeans_automatic_build
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/Websocket/HttpSessionConfigurator.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/Websocket/HttpSessionConfigurator.class
+deleted file mode 100644
+index 9a981ed..0000000
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/Websocket/HttpSessionConfigurator.class and /dev/null differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/Websocket/Notification.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/Websocket/Notification.class
+deleted file mode 100644
+index 20033c0..0000000
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/Websocket/Notification.class and /dev/null differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/Websocket/WebSocket.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/Websocket/WebSocket.class
+deleted file mode 100644
+index 1406bee..0000000
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/Websocket/WebSocket.class and /dev/null differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/Account/Login.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/Account/Login.class
+index d739e2b..6c12627 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/Account/Login.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/Account/Login.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/Equipment.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/Equipment.class
+deleted file mode 100644
+index f524135..0000000
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/Equipment.class and /dev/null differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/Admin.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/Admin.class
+index 02cd3f3..06c49df 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/Admin.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/Admin.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/AdminView.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/AdminView.class
+index 1baff51..bd304a8 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/AdminView.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/AdminView.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/DashboardUser.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/DashboardUser.class
+index 04ceb7c..5641574 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/DashboardUser.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/DashboardUser.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/Decentralization.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/Decentralization.class
+index d485ca2..a950ed8 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/Decentralization.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/admin/Decentralization.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/amenities/AddAmenitiesDashboard.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/amenities/AddAmenitiesDashboard.class
+new file mode 100644
+index 0000000..e247936
+Binary files /dev/null and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/amenities/AddAmenitiesDashboard.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/amenities/DeleteAmenitiesDashboard.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/amenities/DeleteAmenitiesDashboard.class
+new file mode 100644
+index 0000000..2ba73d9
+Binary files /dev/null and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/amenities/DeleteAmenitiesDashboard.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/amenities/EditAmenitiesDashboard.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/amenities/EditAmenitiesDashboard.class
+new file mode 100644
+index 0000000..65bbd23
+Binary files /dev/null and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/amenities/EditAmenitiesDashboard.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/amenities/ViewAmenitiesDashboard.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/amenities/ViewAmenitiesDashboard.class
+new file mode 100644
+index 0000000..bf56936
+Binary files /dev/null and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/amenities/ViewAmenitiesDashboard.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/asset/AssetModel.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/asset/AssetModel.class
+index 027826b..354fb26 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/asset/AssetModel.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/asset/AssetModel.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/asset/Assets.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/asset/Assets.class
+index de7c852..124578f 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/asset/Assets.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/asset/Assets.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/room/ViewRoomDetail.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/room/ViewRoomDetail.class
+index 57cde78..f035ed0 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/room/ViewRoomDetail.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/room/ViewRoomDetail.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/room/ViewRooms.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/room/ViewRooms.class
+index 3489b00..72a1f3d 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/room/ViewRooms.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/room/ViewRooms.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/AddVoucher.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/AddVoucher.class
+index a4e8ffd..183991a 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/AddVoucher.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/AddVoucher.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/AdminViewVoucher.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/AdminViewVoucher.class
+index a203aeb..05685c2 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/AdminViewVoucher.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/AdminViewVoucher.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/DeleteVoucher.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/DeleteVoucher.class
+index fd2c9f7..4e362da 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/DeleteVoucher.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/DeleteVoucher.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/EditVoucher.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/EditVoucher.class
+index e185bb1..4ce08a5 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/EditVoucher.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/EditVoucher.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/ViewVouchers.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/ViewVouchers.class
+index abd9355..8d732f1 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/ViewVouchers.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/ViewVouchers.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/VouchersDashBoard.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/VouchersDashBoard.class
+index d24ae41..21da5a9 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/VouchersDashBoard.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/controllers/voucher/VouchersDashBoard.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/AmenitiesDao.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/AmenitiesDao.class
+new file mode 100644
+index 0000000..db8275e
+Binary files /dev/null and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/AmenitiesDao.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/CustomerDao.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/CustomerDao.class
+index bd98fee..1fc4d64 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/CustomerDao.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/CustomerDao.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/CustomerVoucherDao.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/CustomerVoucherDao.class
+index d33e9a6..193d8ac 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/CustomerVoucherDao.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/CustomerVoucherDao.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/EquipmentDao.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/EquipmentDao.class
+new file mode 100644
+index 0000000..4cc56d1
+Binary files /dev/null and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/EquipmentDao.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/RoomDao.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/RoomDao.class
+index bbabda7..4b2098e 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/RoomDao.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/RoomDao.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/RoomReviewDao.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/RoomReviewDao.class
+index 214fdef..e115c48 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/RoomReviewDao.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/RoomReviewDao.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/UserDao.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/UserDao.class
+index 55fa8fc..1a65f49 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/UserDao.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/UserDao.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/VoucherDAO.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/VoucherDAO.class
+index 649b45a..f2a0825 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/VoucherDAO.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/dao/VoucherDAO.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/db/ConnectData.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/db/ConnectData.class
+index 4fa9124..e65143a 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/db/ConnectData.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/db/ConnectData.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Amenities.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Amenities.class
+index c28559a..d629136 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Amenities.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Amenities.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/CustomerStatus.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/CustomerStatus.class
+index 706629f..0b4eb6b 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/CustomerStatus.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/CustomerStatus.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Customers.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Customers.class
+index b07a119..8459100 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Customers.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Customers.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Equipment.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Equipment.class
+index 6784a2e..fc58a6d 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Equipment.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Equipment.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/MaintenanceSchedule.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/MaintenanceSchedule.class
+index 9bf7f9a..ce731f4 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/MaintenanceSchedule.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/MaintenanceSchedule.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/MaintenanceStatuses.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/MaintenanceStatuses.class
+index 10fbbec..3bfed68 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/MaintenanceStatuses.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/MaintenanceStatuses.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/RoomEquipment.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/RoomEquipment.class
+index 81d71f4..4ff46f3 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/RoomEquipment.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/RoomEquipment.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/RoomReviews.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/RoomReviews.class
+index f3a66fb..e51c22a 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/RoomReviews.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/RoomReviews.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Users.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Users.class
+index d9fa629..6b60b68 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Users.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Users.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Vouchers.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Vouchers.class
+index 11a78e0..ff3ea02 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Vouchers.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/Vouchers.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/string.class b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/string.class
+index f453cda..c48b648 100644
+Binary files a/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/string.class and b/target/BuildingWeb-1.0-SNAPSHOT/WEB-INF/classes/models/string.class differ
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/amenities/addAmenitiesDashboard.jsp b/target/BuildingWeb-1.0-SNAPSHOT/amenities/addAmenitiesDashboard.jsp
+new file mode 100644
+index 0000000..02001ea
+--- /dev/null
++++ b/target/BuildingWeb-1.0-SNAPSHOT/amenities/addAmenitiesDashboard.jsp
+@@ -0,0 +1,194 @@
++<%-- 
++    Document   : addAmenitiesDashboard
++    Created on : Jun 15, 2025, 10:06:09 PM
++    Author     : KHANH
++--%>
++
++<%@page contentType="text/html" pageEncoding="UTF-8"%>
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title>${a != null ? 'Edit Amenity' : 'Add New Amenity'}</title>
++    <style>
++        :root {
++            --main-color: #0a2f5c;
++            --hover-color: #0c3f7c;
++            --bg-color: #f0f6ff;
++            --text-color: #333;
++            --radius: 10px;
++            --shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
++        }
++
++        * {
++            box-sizing: border-box;
++        }
++
++        body {
++            margin: 0;
++            padding: 0;
++            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
++            background-color: #ffffff;
++            display: flex;
++            align-items: center;
++            justify-content: center;
++            min-height: 100vh;
++            animation: fadeInBody 1s ease forwards;
++        }
++
++        @keyframes fadeInBody {
++            from { opacity: 0; }
++            to { opacity: 1; }
++        }
++
++        .form-wrapper {
++            background-color: var(--bg-color);
++            padding: 40px 30px;
++            max-width: 540px;
++            width: 90%;
++            border-radius: var(--radius);
++            box-shadow: var(--shadow);
++            animation: slideIn 0.7s ease-out;
++            opacity: 0;
++            transform: translateY(30px);
++            animation-fill-mode: forwards;
++        }
++
++        @keyframes slideIn {
++            to {
++                opacity: 1;
++                transform: translateY(0);
++            }
++        }
++
++        .form-wrapper:hover {
++            transform: scale(1.01);
++            transition: transform 0.3s ease;
++        }
++
++        h2 {
++            text-align: center;
++            color: var(--main-color);
++            margin-bottom: 10px;
++            font-size: 26px;
++        }
++
++        .description-text {
++            text-align: center;
++            font-size: 14px;
++            color: #555;
++            margin-bottom: 30px;
++        }
++
++        label {
++            display: block;
++            margin-bottom: 6px;
++            font-weight: 600;
++            color: var(--main-color);
++        }
++
++        label::before {
++            content: attr(data-icon) " ";
++            margin-right: 5px;
++        }
++
++        input[type="text"],
++        textarea {
++            width: 100%;
++            padding: 12px;
++            margin-bottom: 20px;
++            border: 1px solid #ccc;
++            border-radius: var(--radius);
++            font-size: 15px;
++            background-color: #fff;
++            transition: border 0.2s, box-shadow 0.2s;
++        }
++
++        input[type="text"]:focus,
++        textarea:focus {
++            border-color: var(--main-color);
++            box-shadow: 0 0 5px rgba(10, 47, 92, 0.4);
++            outline: none;
++        }
++
++        textarea {
++            resize: vertical;
++            min-height: 100px;
++        }
++
++        .button-group {
++            display: flex;
++            justify-content: center;
++            gap: 15px;
++            margin-top: 10px;
++        }
++
++        input[type="submit"],
++        input[type="reset"] {
++            background-color: var(--main-color);
++            color: #fff;
++            border: none;
++            padding: 12px 24px;
++            border-radius: var(--radius);
++            font-size: 15px;
++            font-weight: 600;
++            cursor: pointer;
++            transition: background-color 0.3s ease, transform 0.2s ease;
++        }
++
++        input[type="submit"]:hover,
++        input[type="reset"]:hover {
++            background-color: var(--hover-color);
++            transform: scale(1.05);
++        }
++
++        .back-link {
++            text-align: center;
++            margin-top: 25px;
++        }
++
++        .back-link a {
++            text-decoration: none;
++            color: var(--main-color);
++            font-weight: bold;
++            font-size: 14px;
++            transition: color 0.2s ease;
++        }
++
++        .back-link a:hover {
++            color: var(--hover-color);
++        }
++    </style>
++</head>
++<body>
++
++<div class="form-wrapper">
++    <h2>${a != null ? '🛠️ Edit Amenity' : '➕ Add New Amenity'}</h2>
++    <p class="description-text">
++        Please fill in the details below to ${a != null ? 'update the amenity' : 'add a new amenity'} to the system.
++    </p>
++
++    <form action="${pageContext.request.contextPath}/${a != null ? 'EditAmenitiesDashboard' : 'AddAmenitiesDashboard'}" method="post">
++        <c:if test="${a != null}">
++            <input type="hidden" name="id" value="${a.amenityId}" />
++        </c:if>
++
++        <label for="name" data-icon="🏷️">Amenity Name:</label>
++        <input type="text" id="name" name="name" maxlength="100" required value="${a != null ? a.name : ''}">
++
++        <label for="description" data-icon="📝">Description:</label>
++        <textarea id="description" name="description" maxlength="255">${a != null ? a.description : ''}</textarea>
++
++        <div class="button-group">
++            <input type="submit" value="${a != null ? 'Update' : 'Add'}">
++            <input type="reset" value="Reset">
++        </div>
++    </form>
++
++    <div class="back-link">
++        <a href="${pageContext.request.contextPath}/ViewAmenitiesDashboard">← Back to List</a>
++    </div>
++</div>
++
++</body>
++</html>
+\ No newline at end of file
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/amenities/editAmenitiesDashboard.jsp b/target/BuildingWeb-1.0-SNAPSHOT/amenities/editAmenitiesDashboard.jsp
+new file mode 100644
+index 0000000..7337fb1
+--- /dev/null
++++ b/target/BuildingWeb-1.0-SNAPSHOT/amenities/editAmenitiesDashboard.jsp
+@@ -0,0 +1,185 @@
++<%-- 
++    Document   : editAmenitiesDashboard
++    Created on : Jun 16, 2025, 12:37:26 AM
++    Author     : KHANH
++--%>
++<%@ page contentType="text/html;charset=UTF-8" language="java" %>
++<%@ page import="models.Amenities" %>
++
++
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title>Edit Amenity</title>
++    <style>
++        :root {
++            --primary-color: #0a2f5c;
++            --primary-hover: #0c3f7c;
++            --background: #ffffff;
++            --form-bg: #f4faff;
++            --input-border: #ccc;
++            --radius: 12px;
++            --shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
++        }
++
++        * {
++            box-sizing: border-box;
++        }
++
++        body {
++            margin: 0;
++            padding: 0;
++            background: linear-gradient(135deg, #e4f0ff, #ffffff);
++            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
++            display: flex;
++            align-items: center;
++            justify-content: center;
++            min-height: 100vh;
++            position: relative;
++        }
++
++        /* Decorative icon background */
++        body::before {
++            content: "";
++            position: absolute;
++            top: 10%;
++            left: 5%;
++            width: 140px;
++            height: 140px;
++            background: url('https://cdn-icons-png.flaticon.com/512/847/847969.png') no-repeat center/contain;
++            opacity: 0.05;
++            pointer-events: none;
++        }
++
++        .form-container {
++            background-color: var(--form-bg);
++            border-radius: var(--radius);
++            box-shadow: var(--shadow);
++            padding: 40px;
++            max-width: 480px;
++            width: 90%;
++            animation: fadeIn 0.5s ease-in-out;
++        }
++
++        h1 {
++            color: var(--primary-color);
++            text-align: center;
++            margin-bottom: 10px;
++            font-size: 26px;
++        }
++
++        .description {
++            text-align: center;
++            font-size: 14px;
++            color: #555;
++            margin-bottom: 25px;
++        }
++
++        label {
++            display: block;
++            margin-top: 16px;
++            margin-bottom: 6px;
++            font-weight: 600;
++            color: var(--primary-color);
++        }
++
++        label::before {
++            content: attr(data-icon) " ";
++            margin-right: 4px;
++        }
++
++        input[type="text"],
++        textarea {
++            width: 100%;
++            padding: 12px;
++            border: 1px solid var(--input-border);
++            border-radius: 8px;
++            font-size: 15px;
++            transition: border-color 0.3s;
++            background-color: #fff;
++        }
++
++        input[type="text"]:focus,
++        textarea:focus {
++            border-color: var(--primary-color);
++            outline: none;
++        }
++
++        textarea {
++            resize: vertical;
++            min-height: 100px;
++        }
++
++        button {
++            background-color: var(--primary-color);
++            color: white;
++            border: none;
++            padding: 14px;
++            border-radius: 8px;
++            font-size: 16px;
++            font-weight: bold;
++            cursor: pointer;
++            width: 100%;
++            margin-top: 30px;
++            transition: background-color 0.3s;
++        }
++
++        button:hover {
++            background-color: var(--primary-hover);
++        }
++
++        .back-link {
++            text-align: center;
++            margin-top: 20px;
++        }
++
++        .back-link a {
++            color: var(--primary-color);
++            text-decoration: none;
++            font-weight: bold;
++            font-size: 14px;
++            transition: color 0.2s;
++        }
++
++        .back-link a:hover {
++            color: var(--primary-hover);
++        }
++
++        @keyframes fadeIn {
++            from { opacity: 0; transform: translateY(15px); }
++            to { opacity: 1; transform: translateY(0); }
++        }
++
++        @media (max-width: 480px) {
++            .form-container {
++                padding: 30px 20px;
++            }
++        }
++    </style>
++</head>
++<body>
++
++    <div class="form-container">
++        <h1>🛠️ Edit Amenity</h1>
++        <p class="description">Please fill in the details below to update this amenity in the system.</p>
++
++        <form action="${pageContext.request.contextPath}/EditAmenitiesDashboard" method="post">
++            <input type="hidden" name="id" value="${a.amenityId}" />
++
++            <label for="name" data-icon="🏷️">Amenity Name:</label>
++            <input type="text" id="name" name="name" maxlength="100" required value="${a.name}" />
++
++            <label for="description" data-icon="📝">Description:</label>
++            <textarea id="description" name="description" maxlength="255" rows="4">${a.description}</textarea>
++
++            <button type="submit">Update Amenity</button>
++        </form>
++
++        <div class="back-link">
++            <a href="${pageContext.request.contextPath}/ViewAmenitiesDashboard">← Back to Amenities List</a>
++        </div>
++    </div>
++
++</body>
++</html>
+\ No newline at end of file
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/amenities/viewAmenities.jsp b/target/BuildingWeb-1.0-SNAPSHOT/amenities/viewAmenities.jsp
+new file mode 100644
+index 0000000..8017645
+--- /dev/null
++++ b/target/BuildingWeb-1.0-SNAPSHOT/amenities/viewAmenities.jsp
+@@ -0,0 +1,172 @@
++<%-- 
++    Document   : viewAmenities
++    Created on : Jun 15, 2025, 8:19:33 PM
++    Author     : KHANH
++--%>
++
++<%@ page contentType="text/html;charset=UTF-8" language="java" %>
++<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title>Amenities List</title>
++    <style>
++        :root {
++            --primary-color: #0a2f5c;
++            --primary-hover: #0c3f7c;
++            --edit-color: #007bff;
++            --edit-hover: #0056b3;
++            --delete-color: #dc3545;
++            --delete-hover: #a71d2a;
++            --background: #f8fbff;
++            --table-bg: #ffffff;
++            --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
++        }
++
++        * {
++            box-sizing: border-box;
++        }
++
++        body {
++            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
++            background-color: var(--background);
++            margin: 0;
++            padding: 40px 20px;
++        }
++
++        h2 {
++            color: var(--primary-color);
++            text-align: center;
++            margin-bottom: 30px;
++            font-size: 28px;
++        }
++
++        .top-bar {
++            display: flex;
++            justify-content: flex-end;
++            margin-bottom: 20px;
++        }
++
++        .btn {
++            background-color: var(--primary-color);
++            color: #fff;
++            padding: 10px 20px;
++            text-decoration: none;
++            border-radius: 6px;
++            font-weight: bold;
++            transition: background-color 0.3s ease;
++            box-shadow: var(--shadow);
++        }
++
++        .btn:hover {
++            background-color: var(--primary-hover);
++        }
++
++        table {
++            width: 100%;
++            border-collapse: collapse;
++            background-color: var(--table-bg);
++            border-radius: 10px;
++            overflow: hidden;
++            box-shadow: var(--shadow);
++        }
++
++        th, td {
++            padding: 14px 18px;
++            text-align: center;
++            border-bottom: 1px solid #e1e9f0;
++        }
++
++        th {
++            background-color: var(--primary-color);
++            color: white;
++            text-transform: uppercase;
++            font-size: 14px;
++            letter-spacing: 0.5px;
++        }
++
++        tr:nth-child(even) {
++            background-color: #f4f7fa;
++        }
++
++        tr:hover {
++            background-color: #e3eefc;
++        }
++
++        .action-links a {
++            margin: 0 6px;
++            padding: 7px 12px;
++            border-radius: 5px;
++            text-decoration: none;
++            color: white;
++            font-size: 13px;
++            font-weight: 600;
++            display: inline-block;
++        }
++
++        .edit-btn {
++            background-color: var(--edit-color);
++        }
++
++        .edit-btn:hover {
++            background-color: var(--edit-hover);
++        }
++
++        .delete-btn {
++            background-color: var(--delete-color);
++        }
++
++        .delete-btn:hover {
++            background-color: var(--delete-hover);
++        }
++
++        @media (max-width: 768px) {
++            th, td {
++                padding: 10px;
++                font-size: 14px;
++            }
++
++            .btn {
++                padding: 8px 16px;
++            }
++
++            .action-links a {
++                margin: 2px 3px;
++            }
++        }
++    </style>
++</head>
++<body>
++
++    <h2>Amenities List</h2>
++
++    <div class="top-bar">
++        <a class="btn" href="AddAmenitiesDashboard">+ Add Amenity</a>
++    </div>
++
++    <table>
++        <thead>
++            <tr>
++                <th>ID</th>
++                <th>Amenity Name</th>
++                <th>Description</th>
++                <th>Actions</th>
++            </tr>
++        </thead>
++        <tbody>
++            <c:forEach var="a" items="${amenitiesList}">
++                <tr>
++                    <td>${a.amenityId}</td>
++                    <td>${a.name}</td>
++                    <td>${a.description}</td>
++                    <td class="action-links">
++                        <a class="edit-btn" href="EditAmenitiesDashboard?id=${a.amenityId}">Edit</a>
++                        <a class="delete-btn" href="DeleteAmenitiesDashboard?id=${a.amenityId}" onclick="return confirm('Are you sure you want to delete this amenity?');">Delete</a>
++                    </td>
++                </tr>
++            </c:forEach>
++        </tbody>
++    </table>
++
++</body>
++</html>
+\ No newline at end of file
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/header/header.jsp b/target/BuildingWeb-1.0-SNAPSHOT/header/header.jsp
+index b626005..65e4a6c 100644
+--- a/target/BuildingWeb-1.0-SNAPSHOT/header/header.jsp
++++ b/target/BuildingWeb-1.0-SNAPSHOT/header/header.jsp
+@@ -111,6 +111,8 @@
+         <a href="UpImage">Up ảnh</a>
+         <a href="Notification">Notification</a>
+         <a href="TakeNotification">Nhận Notification</a>
++        <a href="ViewAmenitiesDashboard">Xem danh sách tiện ích</a>
++        
+         <c:choose>
+             <c:when test="${empty accountType}">
+                 <a href="Login">Đăng nhập</a>
+@@ -133,12 +135,18 @@
+                     <c:when test="${role == 5}">
+                         <a href="?id=${equipmentId}">${userName}</a>
+                     </c:when>
+-                </c:choose>
++                    <c:when test="${role == 6}">
++                        <a href="?id=${cusstomerId}">${userName}</a>
++                        </c:when>
++                </c:choose> 
++                        
+             </c:when>
+             <c:otherwise>
+-                <a href="?id=${cusstomerId}">${userName}</a>
++                
+             </c:otherwise>
+         </c:choose>
++                
++                
+     </nav>
+     <button id="menu-toggle">☰</button>
+ </header>
+diff --git a/target/BuildingWeb-1.0-SNAPSHOT/index.jsp b/target/BuildingWeb-1.0-SNAPSHOT/index.jsp
+index 1bfc16b..0ad9f16 100644
+--- a/target/BuildingWeb-1.0-SNAPSHOT/index.jsp
++++ b/target/BuildingWeb-1.0-SNAPSHOT/index.jsp
+@@ -21,49 +21,14 @@
+ 
+         </script>
+ 
+-
++    <a href="index.jsp"></a>
+ 
+     </head>
+     <body>
+ 
+-<<<<<<< HEAD
+-        <header>
+-            <div class="logo">🏨 HotelManager</div>
+-            <nav id="nav-menu">
+-                <a href="Equipment">Equipment</a>
+-                <a href="Index">Trang chủ</a>
+-                <a href="ListRooms">Phòng</a>
+ 
+-                <a href="#">Đặt phòng</a>
+-                <a href="#">Liên hệ</a>
+-                <a href="UpImage">Up ảnh</a>
+-                <a href="VouchersDashBoard">VouchersDashBoard</a>
+-                <a href="ViewVouchers" > ViewVouchers </a> <br>
+-                <c:choose  > 
+-                    <c:when test="${ empty accountType   }">  
+-                        <a href="Login">Đăng nhập</a> 
+-                    </c:when>
+-                    <c:when test="${ accountType eq 'option1'   }">  
+-                        <c:choose> 
+-                            <c:when test="${role == 1}">
+-                                <a href="Admin">Admin</a> 
+-                                <a href="?id=${adminId}">${userName}</a> 
+-                            </c:when>
+-                            <c:when test="${role == 2}">
+-                                <a href="?id=${managerId}">${userName}</a> 
+-                            </c:when>
+-                            <c:when  test="${role == 3}">
+-                                <a href="?id=${staffId}">${userName}</a> 
+-                            </c:when>
+-                            <c:when test="${role == 4}">
+-                                <a href="?id=${onsumablesId}">${userName}</a> 
+-                            </c:when>
+-                            <c:when test="${role == 5}">
+-                                <a href="?id=${equipmentId}">${userName}</a> 
+-                            </c:when>
+-=======
+         <%@include file="header/header.jsp" %> 
+->>>>>>> cfebfc22ee12a619d334010639fb4861f884ea02
++
+ 
+ 
+         <!-- banner -->
+diff --git a/target/classes/Websocket/HttpSessionConfigurator.class b/target/classes/Websocket/HttpSessionConfigurator.class
+deleted file mode 100644
+index 9a981ed..0000000
+Binary files a/target/classes/Websocket/HttpSessionConfigurator.class and /dev/null differ
+diff --git a/target/classes/Websocket/Notification.class b/target/classes/Websocket/Notification.class
+deleted file mode 100644
+index 20033c0..0000000
+Binary files a/target/classes/Websocket/Notification.class and /dev/null differ
+diff --git a/target/classes/Websocket/TakeNotification.class b/target/classes/Websocket/TakeNotification.class
+index 5d78527..707c680 100644
+Binary files a/target/classes/Websocket/TakeNotification.class and b/target/classes/Websocket/TakeNotification.class differ
+diff --git a/target/classes/Websocket/WebSocket.class b/target/classes/Websocket/WebSocket.class
+deleted file mode 100644
+index 1406bee..0000000
+Binary files a/target/classes/Websocket/WebSocket.class and /dev/null differ
+diff --git a/target/classes/controllers/amenities/AddAmenitiesDashboard.class b/target/classes/controllers/amenities/AddAmenitiesDashboard.class
+new file mode 100644
+index 0000000..e247936
+Binary files /dev/null and b/target/classes/controllers/amenities/AddAmenitiesDashboard.class differ
+diff --git a/target/classes/controllers/amenities/DeleteAmenitiesDashboard.class b/target/classes/controllers/amenities/DeleteAmenitiesDashboard.class
+new file mode 100644
+index 0000000..2ba73d9
+Binary files /dev/null and b/target/classes/controllers/amenities/DeleteAmenitiesDashboard.class differ
+diff --git a/target/classes/controllers/amenities/EditAmenitiesDashboard.class b/target/classes/controllers/amenities/EditAmenitiesDashboard.class
+new file mode 100644
+index 0000000..65bbd23
+Binary files /dev/null and b/target/classes/controllers/amenities/EditAmenitiesDashboard.class differ
+diff --git a/target/classes/controllers/amenities/ViewAmenitiesDashboard.class b/target/classes/controllers/amenities/ViewAmenitiesDashboard.class
+new file mode 100644
+index 0000000..bf56936
+Binary files /dev/null and b/target/classes/controllers/amenities/ViewAmenitiesDashboard.class differ
+diff --git a/target/classes/dao/AmenitiesDao.class b/target/classes/dao/AmenitiesDao.class
+new file mode 100644
+index 0000000..db8275e
+Binary files /dev/null and b/target/classes/dao/AmenitiesDao.class differ
+diff --git a/target/classes/dao/EquipmentDao.class b/target/classes/dao/EquipmentDao.class
+new file mode 100644
+index 0000000..e231432
+Binary files /dev/null and b/target/classes/dao/EquipmentDao.class differ
+diff --git a/target/classes/db/ConnectData.class b/target/classes/db/ConnectData.class
+index 4fa9124..6b26abf 100644
+Binary files a/target/classes/db/ConnectData.class and b/target/classes/db/ConnectData.class differ
+diff --git a/target/classes/models/Amenities.class b/target/classes/models/Amenities.class
+index c28559a..0f29092 100644
+Binary files a/target/classes/models/Amenities.class and b/target/classes/models/Amenities.class differ
+diff --git a/target/classes/models/Bookings.class b/target/classes/models/Bookings.class
+index 3760045..860295d 100644
+Binary files a/target/classes/models/Bookings.class and b/target/classes/models/Bookings.class differ
+diff --git a/target/classes/models/Employees.class b/target/classes/models/Employees.class
+index df999cd..d8b0238 100644
+Binary files a/target/classes/models/Employees.class and b/target/classes/models/Employees.class differ
+diff --git a/target/maven-archiver/pom.properties b/target/maven-archiver/pom.properties
+index 885734f..dd1834a 100644
+--- a/target/maven-archiver/pom.properties
++++ b/target/maven-archiver/pom.properties
+@@ -1,18 +1,5 @@
+ #Generated by Maven
+-<<<<<<< HEAD
+-#Fri May 23 23:00:38 ICT 2025
+-=======
+-<<<<<<< HEAD
+-#Thu Jun 12 01:30:15 ICT 2025
+-=======
+-<<<<<<< HEAD
+-#Mon May 19 21:32:17 ICT 2025
+-=======
+-#Mon May 19 21:27:58 ICT 2025
+->>>>>>> 957432600c6c7715ada7cef82b399c8a40ba6d57
++#Mon Jun 16 00:55:15 ICT 2025
+ version=1.0-SNAPSHOT
+->>>>>>> origin
+->>>>>>> cfebfc22ee12a619d334010639fb4861f884ea02
+ groupId=com.mycompany
+ artifactId=BuildingWeb
+-version=1.0-SNAPSHOT
+diff --git a/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst b/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+index 5f0aac2..47af4e6 100644
+--- a/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
++++ b/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+@@ -1,85 +1,50 @@
+-<<<<<<< HEAD
+-=======
+-<<<<<<< HEAD
+-models\Roles.class
+-controllers\room\ViewRooms.class
+-db\ConnectData.class
+-=======
+-<<<<<<< HEAD
+-controllers\voucher\Vouchers.class
+-=======
+->>>>>>> cfebfc22ee12a619d334010639fb4861f884ea02
+ controllers\asset\AssetModel.class
+ models\Roles.class
++controllers\amenities\ViewAmenitiesDashboard.class
++dao\UserDao.class
++controllers\admin\Decentralization.class
++controllers\amenities\EditAmenitiesDashboard.class
++models\MaintenanceStatuses.class
++Websocket\TakeNotification.class
++controllers\voucher\VouchersDashBoard.class
++dao\CustomerDao.class
++controllers\voucher\EditVoucher.class
++controllers\Account\SignUp.class
++dao\RoomReviewDao.class
++dao\EquipmentDao.class
++controllers\amenities\AddAmenitiesDashboard.class
++dao\CustomerVoucherDao.class
++models\Bookings.class
++models\Employees.class
++models\CustomerStatus.class
++models\Vouchers.class
++models\RoomReviews.class
++models\string.class
++controllers\asset\Assets.class
++models\Rooms.class
++dao\AmenitiesDao.class
++controllers\room\ViewRooms.class
+ db\ConnectData.class
+-<<<<<<< HEAD
+-=======
+-models\Booking.class
+->>>>>>> 957432600c6c7715ada7cef82b399c8a40ba6d57
+->>>>>>> cfebfc22ee12a619d334010639fb4861f884ea02
+ controllers\Index.class
+ controllers\UpImage.class
+ dao\RoomDao.class
+-dao\UserDao.class
+ models\Equipment.class
+ dao\PaginationDao.class
+ controllers\voucher\AdminViewVoucher.class
+-controllers\admin\Decentralization.class
+-models\MaintenanceStatuses.class
+ controllers\admin\Admin.class
+ models\Users.class
+ controllers\Account\Login.class
+-<<<<<<< HEAD
+ models\MaintenanceSchedule.class
+-controllers\Equipment.class
+-=======
+-<<<<<<< HEAD
+-Websocket\TakeNotification.class
+-dao\CustomerDao.class
+-controllers\Account\SignUp.class
+-Websocket\Notification.class
+-Websocket\HttpSessionConfigurator.class
+-models\Floors.class
+-controllers\admin\DashboardUser.class
+-Websocket\WebSocket.class
+-controllers\admin\AdminView.class
+-models\Bookings.class
+-models\Buildings.class
+-models\Employees.class
+-models\Customers.class
+-models\RoomReviews.class
+-controllers\room\ViewRoomDetail.class
+-=======
+-<<<<<<< HEAD
+->>>>>>> cfebfc22ee12a619d334010639fb4861f884ea02
+ dao\VoucherDAO.class
+-controllers\voucher\VouchersDashBoard.class
+-dao\CustomerDao.class
+-controllers\voucher\EditVoucher.class
+-controllers\Account\SignUp.class
+-dao\EquipmentDao.class
+-dao\CustomerVoucherDao.class
++controllers\amenities\DeleteAmenitiesDashboard.class
+ models\Floors.class
+ controllers\admin\DashboardUser.class
+ controllers\admin\AdminView.class
+-models\Bookings.class
+ models\Buildings.class
+-models\Employees.class
+-controllers\room\ListRooms.class
+ models\Customers.class
+ controllers\voucher\ViewVouchers.class
+-models\CustomerStatus.class
+ controllers\voucher\AddVoucher.class
+-models\Vouchers.class
+ controllers\voucher\DeleteVoucher.class
+-models\string.class
+ models\RoomEquipment.class
+-controllers\asset\Assets.class
+-<<<<<<< HEAD
+-=======
+->>>>>>> origin
+->>>>>>> 957432600c6c7715ada7cef82b399c8a40ba6d57
+->>>>>>> cfebfc22ee12a619d334010639fb4861f884ea02
+-models\AccountStatus.class
+-models\Rooms.class
++controllers\room\ViewRoomDetail.class
+ models\Amenities.class
+diff --git a/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst b/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+index 6cd3edb..4792a54 100644
+--- a/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
++++ b/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+@@ -1,114 +1,53 @@
+-<<<<<<< HEAD
+-=======
+-<<<<<<< HEAD
+-D:\fouderPrj\BuildingWeb\src\main\java\cloudImages\cloudImage.java
+-D:\fouderPrj\BuildingWeb\src\main\java\controllers\UpImage.java
+-D:\fouderPrj\BuildingWeb\src\main\java\controllers\admin\Decentralization.java
+-D:\fouderPrj\BuildingWeb\src\main\java\controllers\room\ViewRooms.java
+-D:\fouderPrj\BuildingWeb\src\main\java\models\RoomReviews.java
+-D:\fouderPrj\BuildingWeb\src\main\java\Websocket\HttpSessionConfigurator.java
+-D:\fouderPrj\BuildingWeb\src\main\java\models\Buildings.java
+-D:\fouderPrj\BuildingWeb\src\main\java\models\Customers.java
+-D:\fouderPrj\BuildingWeb\src\main\java\models\Floors.java
+-D:\fouderPrj\BuildingWeb\src\main\java\models\Users.java
+-D:\fouderPrj\BuildingWeb\src\main\java\Websocket\TakeNotification.java
+-D:\fouderPrj\BuildingWeb\src\main\java\dao\CustomerDao.java
+-D:\fouderPrj\BuildingWeb\src\main\java\Websocket\Notification.java
+-D:\fouderPrj\BuildingWeb\src\main\java\controllers\admin\Admin.java
+-D:\fouderPrj\BuildingWeb\src\main\java\models\AccountStatus.java
+-D:\fouderPrj\BuildingWeb\src\main\java\Websocket\WebSocket.java
+-D:\fouderPrj\BuildingWeb\src\main\java\models\Rooms.java
+-D:\fouderPrj\BuildingWeb\src\main\java\models\Amenities.java
+-D:\fouderPrj\BuildingWeb\src\main\java\dao\PaginationDao.java
+-D:\fouderPrj\BuildingWeb\src\main\java\models\Roles.java
+-D:\fouderPrj\BuildingWeb\src\main\java\controllers\room\ViewRoomDetail.java
+-D:\fouderPrj\BuildingWeb\src\main\java\models\Employees.java
+-D:\fouderPrj\BuildingWeb\src\main\java\dao\UserDao.java
+-D:\fouderPrj\BuildingWeb\src\main\java\controllers\Account\SignUp.java
+-D:\fouderPrj\BuildingWeb\src\main\java\dao\RoomDao.java
+-D:\fouderPrj\BuildingWeb\src\main\java\models\Bookings.java
+-D:\fouderPrj\BuildingWeb\src\main\java\controllers\admin\DashboardUser.java
+-D:\fouderPrj\BuildingWeb\src\main\java\controllers\admin\AdminView.java
+-D:\fouderPrj\BuildingWeb\src\main\java\db\ConnectData.java
+-D:\fouderPrj\BuildingWeb\src\main\java\controllers\Account\Login.java
+-D:\fouderPrj\BuildingWeb\src\main\java\controllers\Index.java
+-=======
+-<<<<<<< HEAD
+->>>>>>> cfebfc22ee12a619d334010639fb4861f884ea02
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\Roles.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\string.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\admin\DashboardUser.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\Floors.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\voucher\DeleteVoucher.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\Equipment.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\dao\RoomDao.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\Customers.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\Equipment.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\RoomEquipment.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\room\ListRooms.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\dao\PaginationDao.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\admin\AdminView.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\Rooms.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\MaintenanceSchedule.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\Account\Login.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\Bookings.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\UpImage.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\voucher\ViewVouchers.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\Users.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\admin\Decentralization.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\asset\Assets.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\admin\Admin.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\voucher\EditVoucher.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\db\ConnectData.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\Employees.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\AccountStatus.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\Index.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\Vouchers.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\voucher\VouchersDashBoard.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\dao\CustomerVoucherDao.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\Account\SignUp.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\asset\AssetModel.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\Buildings.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\dao\VoucherDAO.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\MaintenanceStatuses.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\dao\EquipmentDao.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\dao\UserDao.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\models\CustomerStatus.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\voucher\AddVoucher.java
+-<<<<<<< HEAD
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\controllers\voucher\AdminViewVoucher.java
+-D:\projectSWP\BuildingManager\BuildingManager1\src\main\java\dao\CustomerDao.java
+-=======
+-=======
+-D:\SWP\BuildingManager1\src\main\java\models\Floors.java
+-D:\SWP\BuildingManager1\src\main\java\dao\RoomDao.java
+-D:\SWP\BuildingManager1\src\main\java\models\Booking.java
+-D:\SWP\BuildingManager1\src\main\java\controllers\Account\SignUp.java
+-D:\SWP\BuildingManager1\src\main\java\controllers\admin\Decentralization.java
+-D:\SWP\BuildingManager1\src\main\java\models\MaintenanceStatuses.java
+-D:\SWP\BuildingManager1\src\main\java\controllers\admin\DashboardUser.java
+-D:\SWP\BuildingManager1\src\main\java\controllers\asset\Assets.java
+-D:\SWP\BuildingManager1\src\main\java\controllers\UpImage.java
+-D:\SWP\BuildingManager1\src\main\java\models\Buildings.java
+-D:\SWP\BuildingManager1\src\main\java\controllers\Index.java
+-D:\SWP\BuildingManager1\src\main\java\dao\UserDao.java
+-D:\SWP\BuildingManager1\src\main\java\models\string.java
+-D:\SWP\BuildingManager1\src\main\java\controllers\admin\Admin.java
+-D:\SWP\BuildingManager1\src\main\java\models\RoomEquipment.java
+-D:\SWP\BuildingManager1\src\main\java\dao\EquipmentDao.java
+-D:\SWP\BuildingManager1\src\main\java\models\Users.java
+-D:\SWP\BuildingManager1\src\main\java\controllers\admin\AdminView.java
+-D:\SWP\BuildingManager1\src\main\java\controllers\room\ListRooms.java
+-D:\SWP\BuildingManager1\src\main\java\controllers\Account\Login.java
+-D:\SWP\BuildingManager1\src\main\java\models\AccountStatus.java
+-D:\SWP\BuildingManager1\src\main\java\controllers\asset\AssetModel.java
+-D:\SWP\BuildingManager1\src\main\java\models\MaintenanceSchedule.java
+-D:\SWP\BuildingManager1\src\main\java\models\Roles.java
+-D:\SWP\BuildingManager1\src\main\java\db\ConnectData.java
+-D:\SWP\BuildingManager1\src\main\java\controllers\Equipment.java
+-D:\SWP\BuildingManager1\src\main\java\dao\PaginationDao.java
+-D:\SWP\BuildingManager1\src\main\java\models\Equipment.java
+-D:\SWP\BuildingManager1\src\main\java\models\Rooms.java
+->>>>>>> origin
+->>>>>>> 957432600c6c7715ada7cef82b399c8a40ba6d57
+->>>>>>> cfebfc22ee12a619d334010639fb4861f884ea02
++D:\prjSWP\BuildingManager1\src\main\java\dao\UserDao.java
++D:\prjSWP\BuildingManager1\src\main\java\Websocket\HttpSessionConfigurator.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\voucher\AddVoucher.java
++D:\prjSWP\BuildingManager1\src\main\java\dao\PaginationDao.java
++D:\prjSWP\BuildingManager1\src\main\java\Websocket\Notification.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\Account\Login.java
++D:\prjSWP\BuildingManager1\src\main\java\models\Employees.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\admin\AdminView.java
++D:\prjSWP\BuildingManager1\src\main\java\models\RoomReviews.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\amenities\AddAmenitiesDashboard.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\voucher\DeleteVoucher.java
++D:\prjSWP\BuildingManager1\src\main\java\models\MaintenanceStatuses.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\admin\Admin.java
++D:\prjSWP\BuildingManager1\src\main\java\models\Buildings.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\amenities\ViewAmenitiesDashboard.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\room\ViewRoomDetail.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\Index.java
++D:\prjSWP\BuildingManager1\src\main\java\dao\CustomerDao.java
++D:\prjSWP\BuildingManager1\src\main\java\models\Vouchers.java
++D:\prjSWP\BuildingManager1\src\main\java\models\CustomerStatus.java
++D:\prjSWP\BuildingManager1\src\main\java\dao\EquipmentDao.java
++D:\prjSWP\BuildingManager1\src\main\java\dao\CustomerVoucherDao.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\admin\Decentralization.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\amenities\DeleteAmenitiesDashboard.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\voucher\VouchersDashBoard.java
++D:\prjSWP\BuildingManager1\src\main\java\models\Bookings.java
++D:\prjSWP\BuildingManager1\src\main\java\dao\RoomReviewDao.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\amenities\EditAmenitiesDashboard.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\voucher\EditVoucher.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\room\ViewRooms.java
++D:\prjSWP\BuildingManager1\src\main\java\db\ConnectData.java
++D:\prjSWP\BuildingManager1\src\main\java\Websocket\TakeNotification.java
++D:\prjSWP\BuildingManager1\src\main\java\dao\RoomDao.java
++D:\prjSWP\BuildingManager1\src\main\java\dao\AmenitiesDao.java
++D:\prjSWP\BuildingManager1\src\main\java\models\Rooms.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\voucher\AdminViewVoucher.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\asset\Assets.java
++D:\prjSWP\BuildingManager1\src\main\java\Websocket\WebSocket.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\asset\AssetModel.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\Account\SignUp.java
++D:\prjSWP\BuildingManager1\src\main\java\models\Customers.java
++D:\prjSWP\BuildingManager1\src\main\java\dao\VoucherDAO.java
++D:\prjSWP\BuildingManager1\src\main\java\models\string.java
++D:\prjSWP\BuildingManager1\src\main\java\models\MaintenanceSchedule.java
++D:\prjSWP\BuildingManager1\src\main\java\models\Roles.java
++D:\prjSWP\BuildingManager1\src\main\java\models\Amenities.java
++D:\prjSWP\BuildingManager1\src\main\java\models\Floors.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\UpImage.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\admin\DashboardUser.java
++D:\prjSWP\BuildingManager1\src\main\java\models\Users.java
++D:\prjSWP\BuildingManager1\src\main\java\models\RoomEquipment.java
++D:\prjSWP\BuildingManager1\src\main\java\controllers\voucher\ViewVouchers.java
++D:\prjSWP\BuildingManager1\src\main\java\models\Equipment.java

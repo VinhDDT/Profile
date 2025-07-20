@@ -1,0 +1,373 @@
+commit ed939e1da790db61b9fdbf7fda1961bc2dad957c
+Merge: 34a4208 4316ed6
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Wed Jun 18 06:00:52 2025 +0700
+
+    customer list + admin dashboard 1
+
+commit 34a4208fdc30a23fafb08aed0fe9ee55aeb5867b
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Wed Jun 18 05:51:24 2025 +0700
+
+    customer list + admin dashboard
+
+commit 4316ed6d5435f901c97c88a94c5c584537608618
+Merge: 51f78d2 6428f98
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Wed Jun 18 05:41:43 2025 +0700
+
+    Merge pull request #20 from mkhanggyjnbub/nhanh_cua_Vinh
+    
+    css login
+
+commit 6428f983cf0dde5aa2fafb39b9b941a72c415c8e
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Wed Jun 18 05:40:17 2025 +0700
+
+    css login
+
+commit 51f78d22ed6a032f655301f0de8290aee7253569
+Merge: 7258521 888ac21
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Wed Jun 18 05:29:44 2025 +0700
+
+    Merge pull request #19 from mkhanggyjnbub/nhanh_cua_Vinh
+    
+    xử lý đặt phòng
+
+commit 888ac21ab761a4673f9eeeb88690afe2fd6c6a4b
+Merge: dc48ffc 7258521
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Wed Jun 18 05:29:01 2025 +0700
+
+    gop code comfirm booking
+
+commit dc48ffc46b42220885b67fc081186bf50704cb0c
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Wed Jun 18 05:11:49 2025 +0700
+
+    xử lý đặt phòng
+
+commit 7258521ddc1543bfc648eeaea5d48af8332ec4a3
+Merge: 6cbb144 878f978
+Author: lehuynhutkhanh2004 <nhutkhangdmx2019@gmail.com>
+Date:   Wed Jun 18 04:50:51 2025 +0700
+
+    Merge pull request #18 from mkhanggyjnbub/nhanh_cua_Khanh
+    
+     Customer
+
+commit 878f9788243012e998e1658eedeaf94877a839e2
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Wed Jun 18 04:50:01 2025 +0700
+
+     Customer
+
+commit 6cbb14491872901f3a272092629b6095cce23a64
+Merge: 1e710cf 74fceb4
+Author: lehuynhutkhanh2004 <nhutkhangdmx2019@gmail.com>
+Date:   Wed Jun 18 00:05:26 2025 +0700
+
+    Merge pull request #17 from mkhanggyjnbub/nhanh_cua_Khanh
+    
+    Nhanh cua khanh
+
+commit 74fceb4d60b4bee6f35c439698e8e46600c3272f
+Merge: 2feb0c6 1e710cf
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Wed Jun 18 00:04:51 2025 +0700
+
+    code da tich hop amenites
+
+commit 2feb0c6a86c2553f6bf5c102735d5b4f215d9f2c
+Merge: 5e708fe 699bf95
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Tue Jun 17 23:58:53 2025 +0700
+
+    Lưu lại code amenites
+
+commit 699bf95d37389eb0503ad2743d7ca460ec33b4e2
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Tue Jun 17 23:55:10 2025 +0700
+
+    Lưu lại code khôi phục từ commit 223a00c
+
+commit 5e708fe6d629d7667ae4d75c91c5ab95e2d287cd
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Tue Jun 17 23:40:25 2025 +0700
+
+    commit tam 1
+
+commit 95461c1878f7988a7e9d1b604251a56c04af0458
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Tue Jun 17 23:36:14 2025 +0700
+
+    amenities 1
+
+commit 1e710cf14b9ed558f89828616efd9007816db4b3
+Merge: a45747f bf5ae0e
+Author: KhangKhm <125184200+mkhanggyjnbub@users.noreply.github.com>
+Date:   Mon Jun 16 23:02:30 2025 +0700
+
+    Merge pull request #16 from mkhanggyjnbub/nhanh_cua_Khang
+    
+    file da chinh roomdetail login
+
+commit bf5ae0e958860164579e6c593c5bcfb68d7b6c17
+Merge: 566068c a45747f
+Author: khang <prokhang55@gmail.com>
+Date:   Mon Jun 16 23:01:46 2025 +0700
+
+    file da chinh roomdetail login 2
+
+commit 566068cdc67c6ac0becbcdc8d45b6d76cf5aef33
+Author: khang <prokhang55@gmail.com>
+Date:   Mon Jun 16 22:58:31 2025 +0700
+
+    file da chinh roomdetail login
+
+commit 7dad78c573bbe9e3b5f0bbeb6101b4d71deb48ea
+Merge: a7bf706 a45747f
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Mon Jun 16 22:22:09 2025 +0700
+
+    amenitiesfinal
+
+commit 223a00cd07e76a02662ce0ee06cf8392652b9432
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Mon Jun 16 22:04:53 2025 +0700
+
+    amenitiesfinal
+
+commit a7bf706bb6de99b140e8437ae06e1ee70d0119e3
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Mon Jun 16 21:21:13 2025 +0700
+
+    update 2.0
+
+commit b87d2e1b17dc781e81edf64efbb33207e0b77eaf
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Mon Jun 16 21:15:07 2025 +0700
+
+    clean up taget dỉr
+
+commit a45747f2c0871714d1fb63a000fba3c8a086ab7a
+Merge: 80dbcb1 10b4931
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Mon Jun 16 21:12:32 2025 +0700
+
+    Merge pull request #14 from mkhanggyjnbub/nhanh_cua_Vinh
+    
+    voucher xém đầy đủ
+
+commit 10b4931fec00fdbcea50d0916f0f87b0543247d5
+Merge: b3a615c 80dbcb1
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Mon Jun 16 21:11:13 2025 +0700
+
+    voucher finish
+
+commit 4fde9b6a32aba042c2e5b9a07e278e8efe6c93cb
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Mon Jun 16 21:08:21 2025 +0700
+
+    amenities
+
+commit b3a615c5bb6550bebdfa55a14e174490c14fdd45
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Mon Jun 16 19:28:03 2025 +0700
+
+    voucher xém đầy đủ
+
+commit 80dbcb19c95f6c3e5f8ade6dd3d12fdfb114e247
+Merge: 43eea92 24860a0
+Author: DoHG1778 <khoa9595123@gmail.com>
+Date:   Mon Jun 16 15:58:16 2025 +0700
+
+    Merge pull request #13 from mkhanggyjnbub/nhanh_cua_Khoa5
+    
+    manage_customer_and_manage_news
+
+commit 24860a0c56c8cbf28c0acd5414855281a45e97ca
+Author: BuildTools <unconfigured@null.spigotmc.org>
+Date:   Mon Jun 16 15:54:01 2025 +0700
+
+    manacus_mananews
+
+commit 43eea92b44bc346b677d81d21e69a264b6559a17
+Merge: 0a59092 1495cb5
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Sun Jun 15 23:03:44 2025 +0700
+
+    Merge pull request #11 from mkhanggyjnbub/nhanh_cua_Vinh
+    
+    update voucher 3.0
+
+commit 1495cb5a20e7bb5c0b2fb55082960bbe5c11b51a
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Sun Jun 15 22:56:40 2025 +0700
+
+    update voucher 3.0
+
+commit 0a590922ef84ae4bc3e93ffaba861a5d6f3b8745
+Merge: cfebfc2 a0ae378
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Thu Jun 12 17:33:38 2025 +0700
+
+    Merge pull request #10 from mkhanggyjnbub/nhanh_cua_Vinh
+    
+    Nhanh cua vinh đã sử lí sung đột xong bảng thêm chức  năng voucher
+
+commit a0ae3784475209ceb5e661aa6f73957e2e50ba45
+Merge: 7b16560 cfebfc2
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Thu Jun 12 17:32:43 2025 +0700
+
+    gop su li cobfix add voucher
+
+commit 7b1656087ff08989d109de226ec07a6eea792633
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Thu Jun 12 17:28:30 2025 +0700
+
+    add voucher
+
+commit cfebfc22ee12a619d334010639fb4861f884ea02
+Merge: 9574326 f111b0a
+Author: KhangKhm <125184200+mkhanggyjnbub@users.noreply.github.com>
+Date:   Thu Jun 12 17:25:34 2025 +0700
+
+    Merge pull request #9 from mkhanggyjnbub/nhanh_cua_Khang
+    
+    Nhanh cua khang gộp code hoàn thành bản Roomdetail
+
+commit f111b0a1565112d01636faa0932aa6dc95a25abb
+Merge: d4ed9b2 9574326
+Author: khang <prokhang55@gmail.com>
+Date:   Thu Jun 12 17:24:26 2025 +0700
+
+    Gop code Review and Roomdetail ban moi
+
+commit d4ed9b2c1e5121a40901010cd0f5e27ae8e9ee1e
+Author: khang <prokhang55@gmail.com>
+Date:   Thu Jun 12 17:03:24 2025 +0700
+
+    Gop code Review and Roomdetail
+
+commit 38ab6d563bef2cd492a4b991cca1f3a88bb5c8b9
+Author: khang <prokhang55@gmail.com>
+Date:   Thu Jun 12 15:38:53 2025 +0700
+
+    RoomDetail and Review
+
+commit 9d80b868e98fe60dc65677964fad3674b9e01950
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Sat May 24 15:59:21 2025 +0700
+
+    update voucher
+
+commit 957432600c6c7715ada7cef82b399c8a40ba6d57
+Merge: d8c6276 b40416e
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Tue May 20 17:23:04 2025 +0700
+
+    Merge pull request #3 from mkhanggyjnbub/nhanh_cua_Vinh
+    
+    voucher đã được chỉnh sửa
+
+commit b40416e8852fbe831349bb35db72b958e54ec315
+Merge: dce21a6 d8c6276
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Tue May 20 17:20:54 2025 +0700
+
+    voucher update
+
+commit d8c6276b4beabd7eceffa2c2609d2e12209bd791
+Merge: 85c984e d11286f
+Author: lehuynhutkhanh2004 <nhutkhangdmx2019@gmail.com>
+Date:   Tue May 20 16:34:24 2025 +0700
+
+    Merge pull request #4 from mkhanggyjnbub/nhanh_cua_Khanh
+    
+    thiet bi ky thuat
+
+commit d11286fea4b511aa75a0b046749aa11d175e2266
+Merge: 83b9a58 85c984e
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Tue May 20 16:33:18 2025 +0700
+
+    hoan chinh
+
+commit 83b9a58d698b0a2c5867d9be404b2510361a8da6
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Tue May 20 16:17:46 2025 +0700
+
+    update quan ly ky thuat
+
+commit 0472717af61deaa4338ef1d79f163e5dd91c3030
+Author: khang <prokhang55@gmail.com>
+Date:   Tue May 20 16:08:07 2025 +0700
+
+    version moi
+
+commit 85c984e1396bc3f0a23b638c467ebadb424bff03
+Merge: d0a0e9e 0472717
+Author: KhangKhm <125184200+mkhanggyjnbub@users.noreply.github.com>
+Date:   Tue May 20 16:05:05 2025 +0700
+
+    Merge pull request #5 from mkhanggyjnbub/nhanh_cua_Khang
+    
+    version moi 2.0
+
+commit 1cf22aa0efb907be14ba8a3bd9dd9936784b0815
+Author: Khanh <nhutkhangdmx2019@gmail.com>
+Date:   Tue May 20 15:39:45 2025 +0700
+
+    thiet bi ky thuat
+
+commit dce21a6422d7473895c77711ea1b9a8e00b4a0ad
+Author: VinhDDT <3dtv.thevinh14052004@gmail.com>
+Date:   Tue May 20 14:07:39 2025 +0700
+
+    tải code lên nhánh
+
+commit f258a6348e98bb0d3137745954d34af15eb2e7c3
+Author: khang <prokhang55@gmail.com>
+Date:   Mon May 19 16:17:51 2025 +0700
+
+    xong login
+
+commit d0a0e9e2757f4eb89a1474003519aaa0943c4bbd
+Merge: f54fefe f258a63
+Author: KhangKhm <125184200+mkhanggyjnbub@users.noreply.github.com>
+Date:   Mon May 19 16:16:20 2025 +0700
+
+    Merge pull request #2 from mkhanggyjnbub/nhanh_cua_Khang
+    
+    xong login
+
+commit f54fefe4ce0b15f4481bd900ac8d43023392b57e
+Merge: 3bf2010 64ccb14
+Author: KhangKhm <125184200+mkhanggyjnbub@users.noreply.github.com>
+Date:   Mon May 19 16:01:12 2025 +0700
+
+    Merge pull request #1 from mkhanggyjnbub/nhanh_cua_Khang
+    
+    xong login
+
+commit 64ccb148122df66e45f23f59d6792f80a5ab7f8c
+Author: khang <prokhang55@gmail.com>
+Date:   Mon May 19 15:59:21 2025 +0700
+
+    Da xong ve login
+
+commit 5643a87fe4722d53ee176da7a8e6bb05f05db5c3
+Author: khang <prokhang55@gmail.com>
+Date:   Wed May 14 10:32:35 2025 +0700
+
+    thay doi 2
+
+commit 3bf2010cc9090879597f20b4289e0a7c898744d2
+Author: khang <prokhang55@gmail.com>
+Date:   Wed May 14 09:59:41 2025 +0700
+
+    First commit - upload Java project
